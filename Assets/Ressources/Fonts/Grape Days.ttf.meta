@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: cb56a4c56b50cb647ab1d7312b76138e
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Grape Days
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: e3d97f146fc48d04694135559cfc960f, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
