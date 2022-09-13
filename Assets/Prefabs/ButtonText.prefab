@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 5549590616082418280}
   - component: {fileID: 5142315034422260792}
   m_Layer: 5
-  m_Name: Button
+  m_Name: ButtonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -328,4 +328,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3c210c370e35b54d870987e579d0ab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteMouseOn: {fileID: 21300000, guid: b657fb96814d116479adc0929273b946, type: 3}
+  spriteMouseOn: {fileID: 21300000, guid: a1e28baeea0d230458e820845e16472b, type: 3}
