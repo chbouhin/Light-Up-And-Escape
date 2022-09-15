@@ -17,17 +17,23 @@ public class ButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     private Vector2 buttonSize;
 
     // Text
+    [SerializeField] private bool haveText = false;
     private TextMeshProUGUI textMeshPro;
     private float textSize;
 
     // Animation
     private bool inAnimation = false;
-    private float defaultAnimationTime = 0.25f;
+    private float defaultAnimationTime = 0.15f;
     private float animationTime = 0f;
 
+    // Sound
+    [SerializeField] private string sound;
+    private AudioManager audioManager;
+
     // Other
-    private float objMinimumSize = 0.9f; // value from 0 to 1
-    private bool buttonPressed;
+    private float objMinimumSize = 0.95f; // value from 0 to 1
+    private bool buttonPressed = false;
+    private bool buttonClicked = false;
 
     private void Start()
     {
@@ -35,15 +41,17 @@ public class ButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         spriteMouseOut = image.sprite;
         rectTransform = transform.GetChild(0).GetComponent<RectTransform>();
         buttonSize = rectTransform.sizeDelta;
-        textMeshPro = transform.GetChild(1).GetComponent<TextMeshProUGUI>();
-        textSize = textMeshPro.fontSize;
+        if (haveText) {
+            textMeshPro = transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+            textSize = textMeshPro.fontSize;
+        }
     }
 
     private void Update()
     {
         if (!inAnimation)
             return;
-        if (buttonPressed) { // Start animation
+        if (buttonPressed || buttonClicked) { // Start animation
             animationTime += Time.deltaTime;
             if (animationTime >= defaultAnimationTime) {
                 animationTime = defaultAnimationTime;
@@ -59,7 +67,8 @@ public class ButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         // Set size with start or end animation
         float actualSize = Mathf.Lerp(1f, objMinimumSize, animationTime * (1 / defaultAnimationTime));
         rectTransform.sizeDelta = buttonSize * actualSize;
-        textMeshPro.fontSize = textSize * actualSize;
+        if (haveText)
+            textMeshPro.fontSize = textSize * actualSize;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -69,7 +78,8 @@ public class ButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        image.sprite = spriteMouseOut;
+        if (!buttonClicked)
+            image.sprite = spriteMouseOut;
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -82,5 +92,13 @@ public class ButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         buttonPressed = false;
         inAnimation = true;
+    }
+
+    public void OnClick()
+    {
+        if (audioManager == null)
+            audioManager = FindObjectOfType<AudioManager>();
+        audioManager.Play(sound);
+        buttonClicked = true;
     }
 }

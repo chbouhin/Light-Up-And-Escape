@@ -6468,27 +6468,27 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 13849589c1e19db42ad918a14e50f76d, type: 3}
     - target: {fileID: 5549590616082418280, guid: 43319aff73f9cb44e9f7beb065bcb29d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 5
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5549590616082418280, guid: 43319aff73f9cb44e9f7beb065bcb29d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1430896787}
     - target: {fileID: 5549590616082418280, guid: 43319aff73f9cb44e9f7beb065bcb29d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadNewScene
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: LoadLastScene
       objectReference: {fileID: 0}
     - target: {fileID: 5549590616082418280, guid: 43319aff73f9cb44e9f7beb065bcb29d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: SceneLoader, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5549590616082418280, guid: 43319aff73f9cb44e9f7beb065bcb29d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
       value: Menu
       objectReference: {fileID: 0}
     - target: {fileID: 5549590616082418280, guid: 43319aff73f9cb44e9f7beb065bcb29d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5837957977595376006, guid: 43319aff73f9cb44e9f7beb065bcb29d, type: 3}

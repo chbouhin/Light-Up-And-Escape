@@ -18,6 +18,7 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadLastScene()
     {
+        //TODO
         StartCoroutine(LoadSceneWithTransition("Menu"));
     }
 
