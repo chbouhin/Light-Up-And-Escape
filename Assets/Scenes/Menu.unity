@@ -153,35 +153,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: Music 1
+  - name: Music Game 1
     clip: {fileID: 8300000, guid: 791f339913af3b840966a32208487d2a, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     isMusic: 1
     source: {fileID: 0}
-  - name: Music 2
+  - name: Music Game 2
     clip: {fileID: 8300000, guid: 5af3375a981cdd54aa2cfb557365b521, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     isMusic: 1
     source: {fileID: 0}
-  - name: Music 3
+  - name: Music Game 3
     clip: {fileID: 8300000, guid: 7ab3c03bc2c72444aae8932ccc6ca97d, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     isMusic: 1
     source: {fileID: 0}
-  - name: Music 4
+  - name: Music Game 4
     clip: {fileID: 8300000, guid: cc5fa4ce88f7e5542af3fd7d46de50a2, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     isMusic: 1
     source: {fileID: 0}
-  - name: Music 5
+  - name: Music Game 5
     clip: {fileID: 8300000, guid: bb0b3c50b77dfcb4db785fff8f0499cb, type: 3}
     volume: 1
     pitch: 1
@@ -194,6 +194,34 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     isMusic: 0
+    source: {fileID: 0}
+  - name: Music Menu 1
+    clip: {fileID: 8300000, guid: 2f33e8d28206ec842b3c7d7a6b801606, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    isMusic: 1
+    source: {fileID: 0}
+  - name: Music Menu 2
+    clip: {fileID: 8300000, guid: 9c06d5e0c5971c54ca4c7a4df48a8b9a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    isMusic: 1
+    source: {fileID: 0}
+  - name: Music Menu 3
+    clip: {fileID: 8300000, guid: 67f46dfe57a9ff54cb3682e8324f0ad8, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    isMusic: 1
+    source: {fileID: 0}
+  - name: Music Menu 4
+    clip: {fileID: 8300000, guid: eab24b09e380c1e479069be8558309ba, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    isMusic: 1
     source: {fileID: 0}
 --- !u!4 &152028531
 Transform:

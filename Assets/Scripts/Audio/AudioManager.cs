@@ -7,7 +7,16 @@ using System;
 public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;
+    public Music[] menuMusics;
+    public Music[] gameMusics;
     private static AudioManager instance;
+    private static AudioSource music;
+    private int actualMenuMusic;
+    private int actualGameMusic;
+    private bool isInMenu = false;
+    private float soundVolume = 1f;
+    private float musicVolume = 1f;
+    private float allVolume = 0.5f;
 
     private void Awake()
     {
@@ -18,7 +27,29 @@ public class AudioManager : MonoBehaviour
             return;
         }
         DontDestroyOnLoad(gameObject);
+        InitAudio();
+    }
 
+    private void Update()
+    {
+        if (!music.isPlaying) {
+            if (isInMenu)
+                music.clip = menuMusics[actualMenuMusic].clip;
+            else
+                music.clip = gameMusics[actualGameMusic].clip;
+            SetMusicVolume(musicVolume);
+            music.Play();
+        }
+    }
+
+    private void InitAudio()
+    {
+        actualMenuMusic = UnityEngine.Random.Range(0, menuMusics.Length);
+        print(actualMenuMusic);
+        print(menuMusics.Length);
+        music = gameObject.AddComponent<AudioSource>();
+        music.clip = menuMusics[actualMenuMusic].clip;
+        music.Play();
         foreach (Sound sound in sounds)
         {
             sound.source = gameObject.AddComponent<AudioSource>();
@@ -41,14 +72,25 @@ public class AudioManager : MonoBehaviour
 
     public void SetAllVolumes(float volume)
     {
+        allVolume = volume;
         foreach (Sound sound in sounds)
-            sound.source.volume = volume;
+            sound.source.volume = soundVolume * allVolume;
+        music.volume = musicVolume * allVolume;
     }
 
-    public void SetVolume(float volume, bool isMusic)
+    public void SetSoundVolume(float volume)
     {
-        Sound[] soundsFind = Array.FindAll(sounds, s => s.isMusic == isMusic);
-        foreach (Sound sound in soundsFind)
-            sound.source.volume = volume;
+        soundVolume = volume;
+        foreach (Sound sound in sounds)
+            sound.source.volume = soundVolume * allVolume * sound.volume;
+    }
+
+    public void SetMusicVolume(float volume)
+    {
+        musicVolume = volume;
+        if (isInMenu)
+            music.volume = musicVolume * allVolume * menuMusics[actualMenuMusic].volume;
+        else
+            music.volume = musicVolume * allVolume * gameMusics[actualGameMusic].volume;
     }
 }
