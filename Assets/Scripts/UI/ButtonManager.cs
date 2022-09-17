@@ -31,7 +31,7 @@ public class ButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     private AudioManager audioManager;
 
     // Other
-    private float objMinimumSize = 0.95f; // value from 0 to 1
+    private float objMinimumSize = 0.90f; // value from 0 to 1
     private bool buttonPressed = false;
     private bool buttonClicked = false;
 
@@ -100,5 +100,13 @@ public class ButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             audioManager = FindObjectOfType<AudioManager>();
         audioManager.Play(sound);
         buttonClicked = true;
+    }
+
+    public void Reset()
+    {
+        if (image) {
+            buttonClicked = false;
+            image.sprite = spriteMouseOut;
+        }
     }
 }

@@ -14,9 +14,9 @@ public class AudioManager : MonoBehaviour
     private int actualMenuMusic;
     private int actualGameMusic;
     private bool isInMenu = false;
-    private float soundVolume = 1f;
-    private float musicVolume = 1f;
-    private float allVolume = 0.5f;
+    [HideInInspector] public float allVolumes;
+    [HideInInspector] public float soundVolume;
+    [HideInInspector] public float musicVolume;
 
     private void Awake()
     {
@@ -44,9 +44,10 @@ public class AudioManager : MonoBehaviour
 
     private void InitAudio()
     {
+        allVolumes = 0.5f;
+        soundVolume = 0.5f;
+        musicVolume = 0.5f;
         actualMenuMusic = UnityEngine.Random.Range(0, menuMusics.Length);
-        print(actualMenuMusic);
-        print(menuMusics.Length);
         music = gameObject.AddComponent<AudioSource>();
         music.clip = menuMusics[actualMenuMusic].clip;
         music.Play();
@@ -72,25 +73,25 @@ public class AudioManager : MonoBehaviour
 
     public void SetAllVolumes(float volume)
     {
-        allVolume = volume;
+        allVolumes = volume;
         foreach (Sound sound in sounds)
-            sound.source.volume = soundVolume * allVolume;
-        music.volume = musicVolume * allVolume;
+            sound.source.volume = soundVolume * allVolumes;
+        music.volume = musicVolume * allVolumes;
     }
 
     public void SetSoundVolume(float volume)
     {
         soundVolume = volume;
         foreach (Sound sound in sounds)
-            sound.source.volume = soundVolume * allVolume * sound.volume;
+            sound.source.volume = soundVolume * allVolumes * sound.volume;
     }
 
     public void SetMusicVolume(float volume)
     {
         musicVolume = volume;
         if (isInMenu)
-            music.volume = musicVolume * allVolume * menuMusics[actualMenuMusic].volume;
+            music.volume = musicVolume * allVolumes * menuMusics[actualMenuMusic].volume;
         else
-            music.volume = musicVolume * allVolume * gameMusics[actualGameMusic].volume;
+            music.volume = musicVolume * allVolumes * gameMusics[actualGameMusic].volume;
     }
 }

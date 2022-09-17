@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class SceneLoader : MonoBehaviour
 {
-    [SerializeField] private Animator transition;
-    private float transitionTime = 1f;
+    public Animator transition;
+    private float transitionTime = 0.5f;
     private string lastScene;
 
     public void LoadNewScene(string sceneName)
@@ -16,21 +16,20 @@ public class SceneLoader : MonoBehaviour
         StartCoroutine(LoadSceneWithTransition(sceneName));
     }
 
-    public void LoadLastScene()
-    {
-        //TODO
-        StartCoroutine(LoadSceneWithTransition("Menu"));
-    }
-
     public void QuitGame()
     {
         Application.Quit();
     }
 
-    IEnumerator LoadSceneWithTransition(string sceneName)
+    private IEnumerator LoadSceneWithTransition(string sceneName)
     {
         transition.SetTrigger("HideScene");
         yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene(sceneName);
+    }
+
+    public float GetTransitionTime()
+    {
+        return transitionTime;
     }
 }
