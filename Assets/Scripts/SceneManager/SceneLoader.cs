@@ -8,11 +8,15 @@ public class SceneLoader : MonoBehaviour
 {
     public Animator transition;
     private float transitionTime = 0.5f;
-    private string lastScene;
+
+    private void Awake()
+    {
+        transform.GetChild(0).gameObject.SetActive(true);
+    }
 
     public void LoadNewScene(string sceneName)
     {
-        lastScene = SceneManager.GetActiveScene().name;
+        Time.timeScale = 1f;
         StartCoroutine(LoadSceneWithTransition(sceneName));
     }
 
@@ -24,7 +28,7 @@ public class SceneLoader : MonoBehaviour
     private IEnumerator LoadSceneWithTransition(string sceneName)
     {
         transition.SetTrigger("HideScene");
-        yield return new WaitForSeconds(transitionTime);
+        yield return new WaitForSecondsRealtime(transitionTime);
         SceneManager.LoadScene(sceneName);
     }
 

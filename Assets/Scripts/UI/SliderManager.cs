@@ -15,11 +15,16 @@ public class SliderManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     // Other
     [SerializeField] private TextMeshProUGUI number;
     private Slider slider;
-    private AudioManager audioManager;
     private bool buttonPressed = false;
     private bool mouseIsOn = false;
 
-    private void Start()
+    private void Awake()
+    {
+        if (!slider)
+            Init();
+    }
+
+    private void Init()
     {
         slider = transform.GetComponent<Slider>();
         image = transform.GetChild(2).GetChild(0).GetComponent<Image>();
@@ -54,33 +59,19 @@ public class SliderManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public void OnValueChange()
     {
         if (slider)
-            number.text = Mathf.FloorToInt(slider.value * 100).ToString();
+            number.text = slider.value.ToString();
     }
 
-    public void SetSoundVolume()
+    public void SetValue(float value)
     {
-        if (slider) {
-            if (audioManager == null)
-                audioManager = FindObjectOfType<AudioManager>();
-            audioManager.SetSoundVolume(slider.value);
-        }
+        if (!slider)
+            Init();
+        slider.value = value;
+        number.text = value.ToString();
     }
 
-    public void SetMusicVolume()
+    public float GetValue()
     {
-        if (slider) {
-            if (audioManager == null)
-                audioManager = FindObjectOfType<AudioManager>();
-            audioManager.SetMusicVolume(slider.value);
-        }
-    }
-
-    public void SetAllVolumes()
-    {
-        if (slider) {
-            if (audioManager == null)
-                audioManager = FindObjectOfType<AudioManager>();
-            audioManager.SetAllVolumes(slider.value);
-        }
+        return slider.value;
     }
 }

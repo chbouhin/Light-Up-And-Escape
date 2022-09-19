@@ -14,9 +14,9 @@ public class AudioManager : MonoBehaviour
     private int actualMenuMusic;
     private int actualGameMusic;
     private bool isInMenu = false;
-    [HideInInspector] public float allVolumes;
-    [HideInInspector] public float soundVolume;
-    [HideInInspector] public float musicVolume;
+    private float allVolumes = 0.5f;
+    private float musicVolume = 0.5f;
+    private float soundVolume = 0.5f;
 
     private void Awake()
     {
@@ -44,9 +44,6 @@ public class AudioManager : MonoBehaviour
 
     private void InitAudio()
     {
-        allVolumes = 0.5f;
-        soundVolume = 0.5f;
-        musicVolume = 0.5f;
         actualMenuMusic = UnityEngine.Random.Range(0, menuMusics.Length);
         music = gameObject.AddComponent<AudioSource>();
         music.clip = menuMusics[actualMenuMusic].clip;
@@ -71,6 +68,8 @@ public class AudioManager : MonoBehaviour
         sound.source.Play();
     }
 
+    /* ========== AllVolumes ========== */
+
     public void SetAllVolumes(float volume)
     {
         allVolumes = volume;
@@ -79,12 +78,12 @@ public class AudioManager : MonoBehaviour
         music.volume = musicVolume * allVolumes;
     }
 
-    public void SetSoundVolume(float volume)
+    public float GetAllVolumes()
     {
-        soundVolume = volume;
-        foreach (Sound sound in sounds)
-            sound.source.volume = soundVolume * allVolumes * sound.volume;
+        return allVolumes;
     }
+
+    /* ========== Music ========== */
 
     public void SetMusicVolume(float volume)
     {
@@ -93,5 +92,24 @@ public class AudioManager : MonoBehaviour
             music.volume = musicVolume * allVolumes * menuMusics[actualMenuMusic].volume;
         else
             music.volume = musicVolume * allVolumes * gameMusics[actualGameMusic].volume;
+    }
+
+    public float GetMusicVolume()
+    {
+        return musicVolume;
+    }
+
+    /* ========== Sound ========== */
+
+    public void SetSoundVolume(float volume)
+    {
+        soundVolume = volume;
+        foreach (Sound sound in sounds)
+            sound.source.volume = soundVolume * allVolumes * sound.volume;
+    }
+
+    public float GetSoundVolume()
+    {
+        return soundVolume;
     }
 }

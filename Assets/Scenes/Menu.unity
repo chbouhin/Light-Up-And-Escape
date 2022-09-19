@@ -188,9 +188,6 @@ MonoBehaviour:
   - clip: {fileID: 8300000, guid: bb0b3c50b77dfcb4db785fff8f0499cb, type: 3}
     volume: 1
     pitch: 1
-  allVolumes: 0
-  soundVolume: 0
-  musicVolume: 0
 --- !u!4 &152028531
 Transform:
   m_ObjectHideFlags: 0

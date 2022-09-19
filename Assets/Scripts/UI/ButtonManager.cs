@@ -52,13 +52,13 @@ public class ButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         if (!inAnimation)
             return;
         if (buttonPressed || buttonClicked) { // Start animation
-            animationTime += Time.deltaTime;
+            animationTime += Time.unscaledDeltaTime;
             if (animationTime >= defaultAnimationTime) {
                 animationTime = defaultAnimationTime;
                 inAnimation = false;
             }
         } else { // End animation
-            animationTime -= Time.deltaTime;
+            animationTime -= Time.unscaledDeltaTime;
             if (animationTime <= 0) {
                 animationTime = 0;
                 inAnimation = false;
@@ -107,6 +107,9 @@ public class ButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         if (image) {
             buttonClicked = false;
             image.sprite = spriteMouseOut;
+            rectTransform.sizeDelta = buttonSize;
+            animationTime = 0f;
+            inAnimation = false;
         }
     }
 }
