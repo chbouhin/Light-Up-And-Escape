@@ -6,6 +6,7 @@ using TMPro;
 public class Countdown : MonoBehaviour
 {
     [SerializeField] private SceneLoader sceneLoader;
+    [SerializeField] private MouseLight mouseLight;
     private TextMeshProUGUI text;
 
     private void Start()
@@ -23,6 +24,7 @@ public class Countdown : MonoBehaviour
             countdown--;
         }
         text.text = "GO";
+        mouseLight.SetCanMove(true);
         yield return new WaitForSeconds(2f);
         gameObject.SetActive(false);
     }

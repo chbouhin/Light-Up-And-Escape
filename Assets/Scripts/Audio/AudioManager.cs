@@ -13,10 +13,10 @@ public class AudioManager : MonoBehaviour
     private static AudioSource music;
     private int actualMenuMusic;
     private int actualGameMusic;
-    private bool isInMenu = false;
-    private float allVolumes = 0.5f;
-    private float musicVolume = 0.5f;
-    private float soundVolume = 0.5f;
+    private bool isInMenu = true;
+    private float allVolumes;
+    private float musicVolume;
+    private float soundVolume;
 
     private void Awake()
     {
@@ -33,10 +33,13 @@ public class AudioManager : MonoBehaviour
     private void Update()
     {
         if (!music.isPlaying) {
-            if (isInMenu)
+            if (isInMenu) {
+                actualMenuMusic = (actualMenuMusic + 1) % menuMusics.Length;
                 music.clip = menuMusics[actualMenuMusic].clip;
-            else
+            } else {
+                actualGameMusic = (actualGameMusic + 1) % gameMusics.Length;
                 music.clip = gameMusics[actualGameMusic].clip;
+            }            
             SetMusicVolume(musicVolume);
             music.Play();
         }
@@ -44,7 +47,11 @@ public class AudioManager : MonoBehaviour
 
     private void InitAudio()
     {
+        allVolumes = PlayerPrefs.GetFloat("AllVolumes", 0.5f);
+        musicVolume = PlayerPrefs.GetFloat("MusicVolume", 0.5f);
+        soundVolume = PlayerPrefs.GetFloat("SoundVolume", 0.5f);
         actualMenuMusic = UnityEngine.Random.Range(0, menuMusics.Length);
+        actualGameMusic = UnityEngine.Random.Range(0, gameMusics.Length);
         music = gameObject.AddComponent<AudioSource>();
         music.clip = menuMusics[actualMenuMusic].clip;
         music.Play();
@@ -68,13 +75,29 @@ public class AudioManager : MonoBehaviour
         sound.source.Play();
     }
 
+    public void ChangeMusicTheme(bool isInMenu)
+    {
+        if (isInMenu == this.isInMenu)
+            return;
+        this.isInMenu = isInMenu;
+        if (isInMenu) {
+            actualMenuMusic = (actualMenuMusic + 1) % menuMusics.Length;
+            music.clip = menuMusics[actualMenuMusic].clip;
+        } else {
+            actualGameMusic = (actualGameMusic + 1) % gameMusics.Length;
+            music.clip = gameMusics[actualGameMusic].clip;
+        }
+        SetMusicVolume(musicVolume);
+        music.Play();
+    }
+
     /* ========== AllVolumes ========== */
 
     public void SetAllVolumes(float volume)
     {
         allVolumes = volume;
         foreach (Sound sound in sounds)
-            sound.source.volume = soundVolume * allVolumes;
+            sound.source.volume = soundVolume * allVolumes;//si il y a 2 audiomanager, il ne detect plus l audiosource dans sounds[0].source mais detect toujours gameMusics
         music.volume = musicVolume * allVolumes;
     }
 

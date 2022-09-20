@@ -7,9 +7,16 @@ public class MouseLight : MonoBehaviour
     [SerializeField] private GameManager gameManager;
     [SerializeField] private Rigidbody2D rb;
     private Vector2 position;
-    private float moveSpeed = 0.05f; // O to 1
+    private float moveSpeed = 0.05f; // 0 to 1
+    private bool canMove = false;
 
     private void Update()
+    {
+        if (canMove)
+            Move();
+    }
+
+    private void Move()
     {
         Vector2 minScreenBounds = Camera.main.ScreenToWorldPoint(new Vector2(0, 0));
         Vector2 maxScreenBounds = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
@@ -21,5 +28,10 @@ public class MouseLight : MonoBehaviour
     private void FixedUpdate()
     {
         rb.MovePosition(position);
+    }
+
+    public void SetCanMove(bool canMove)
+    {
+        this.canMove = canMove;
     }
 }

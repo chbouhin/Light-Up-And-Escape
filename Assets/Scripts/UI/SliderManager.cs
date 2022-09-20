@@ -14,21 +14,16 @@ public class SliderManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     // Other
     [SerializeField] private TextMeshProUGUI number;
-    private Slider slider;
+    [SerializeField] private Slider slider;
     private bool buttonPressed = false;
     private bool mouseIsOn = false;
+    private bool isLoading = true;
 
     private void Awake()
     {
-        if (!slider)
-            Init();
-    }
-
-    private void Init()
-    {
-        slider = transform.GetComponent<Slider>();
         image = transform.GetChild(2).GetChild(0).GetComponent<Image>();
         spriteMouseOut = image.sprite;
+        isLoading = false;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -58,14 +53,13 @@ public class SliderManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void OnValueChange()
     {
-        if (slider)
-            number.text = slider.value.ToString();
+        if (isLoading)
+            return;
+        number.text = slider.value.ToString();
     }
 
     public void SetValue(float value)
     {
-        if (!slider)
-            Init();
         slider.value = value;
         number.text = value.ToString();
     }

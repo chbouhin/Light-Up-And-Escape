@@ -47,19 +47,28 @@ public class SettingsManager : MonoBehaviour
 
     public void SetAllVolumes()
     {
-        if (audioManager)
-            audioManager.SetAllVolumes(sliderAllVolumes.GetValue() / ratioVolume);
+        if (!audioManager)
+            return;
+        float volume = sliderAllVolumes.GetValue() / ratioVolume;
+        audioManager.SetAllVolumes(volume);
+        PlayerPrefs.SetFloat("AllVolumes", volume);
     }
 
     public void SetMusicVolume()
     {
-        if (audioManager)
-            audioManager.SetMusicVolume(sliderMusic.GetValue() / ratioVolume);
+        if (!audioManager)
+            return;
+        float volume = sliderMusic.GetValue() / ratioVolume;
+        audioManager.SetMusicVolume(volume);
+        PlayerPrefs.SetFloat("MusicVolume", volume);
     }
 
     public void SetSoundVolume()
     {
-        if (audioManager)
-            audioManager.SetSoundVolume(sliderSound.GetValue() / ratioVolume);
+        if (!audioManager)
+            return;
+        float volume = sliderSound.GetValue() / ratioVolume;
+        audioManager.SetSoundVolume(volume);
+        PlayerPrefs.SetFloat("SoundVolume", volume);
     }
 }
