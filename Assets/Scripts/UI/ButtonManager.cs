@@ -13,8 +13,10 @@ public class ButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     private Image image;
 
     // Button
-    private RectTransform rectTransform;
+    [SerializeField] private RectTransform rectTransform;
     private Vector2 buttonSize;
+    private bool buttonPressed = false;
+    private bool buttonClicked = false;
 
     // Text
     [SerializeField] private bool haveText = false;
@@ -22,6 +24,7 @@ public class ButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     private float textSize;
 
     // Animation
+    [SerializeField] private bool useScale = false;
     private bool inAnimation = false;
     private float defaultAnimationTime = 0.15f;
     private float animationTime = 0f;
@@ -32,14 +35,12 @@ public class ButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     // Other
     private float objMinimumSize = 0.90f; // value from 0 to 1
-    private bool buttonPressed = false;
-    private bool buttonClicked = false;
 
     private void Start()
     {
         image = transform.GetChild(0).GetComponent<Image>();
-        spriteMouseOut = image.sprite;
-        rectTransform = transform.GetChild(0).GetComponent<RectTransform>();
+        if (spriteMouseOn)
+            spriteMouseOut = image.sprite;
         buttonSize = rectTransform.sizeDelta;
         if (haveText) {
             textMeshPro = transform.GetChild(1).GetComponent<TextMeshProUGUI>();
@@ -66,19 +67,23 @@ public class ButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         }
         // Set size with start or end animation
         float actualSize = Mathf.Lerp(1f, objMinimumSize, animationTime * (1 / defaultAnimationTime));
-        rectTransform.sizeDelta = buttonSize * actualSize;
+        if (useScale)
+            rectTransform.localScale = Vector2.one * actualSize;
+        else
+            rectTransform.sizeDelta = buttonSize * actualSize;
         if (haveText)
             textMeshPro.fontSize = textSize * actualSize;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        image.sprite = spriteMouseOn;
+        if (spriteMouseOn)
+            image.sprite = spriteMouseOn;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (!buttonClicked)
+        if (!buttonClicked && spriteMouseOn)
             image.sprite = spriteMouseOut;
     }
 
@@ -106,7 +111,8 @@ public class ButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         if (image) {
             buttonClicked = false;
-            image.sprite = spriteMouseOut;
+            if (spriteMouseOn)
+                image.sprite = spriteMouseOut;
             rectTransform.sizeDelta = buttonSize;
             animationTime = 0f;
             inAnimation = false;

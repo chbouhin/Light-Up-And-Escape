@@ -7272,7 +7272,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5549590616082418280, guid: a4e3f384f8b6806419ee350d5ba92fde, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
-      value: Game
+      value: LevelSelection
       objectReference: {fileID: 0}
     - target: {fileID: 5549590616082418280, guid: a4e3f384f8b6806419ee350d5ba92fde, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
