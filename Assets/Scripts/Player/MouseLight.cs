@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MouseLight : MonoBehaviour
 {
-    [SerializeField] private GameManager gameManager;
     [SerializeField] private Rigidbody2D rb;
     private Vector2 position;
     private float moveSpeed = 0.05f; // 0 to 1

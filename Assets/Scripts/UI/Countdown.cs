@@ -7,6 +7,7 @@ public class Countdown : MonoBehaviour
 {
     [SerializeField] private SceneLoader sceneLoader;
     [SerializeField] private MouseLight mouseLight;
+    [SerializeField] private Square square;
     private TextMeshProUGUI text;
 
     private void Start()
@@ -25,6 +26,7 @@ public class Countdown : MonoBehaviour
         }
         text.text = "GO";
         mouseLight.SetCanMove(true);
+        square.SetCanMove(true);
         yield return new WaitForSeconds(2f);
         gameObject.SetActive(false);
     }
