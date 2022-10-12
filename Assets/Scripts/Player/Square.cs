@@ -15,7 +15,7 @@ public class Square : MonoBehaviour
     private bool canMove = false;
     private bool isGrounded = true;
     private float rotationZ = 0f;
-    private float rotationSpeed = 175f;
+    private float rotationSpeed = 275f;
 
     private void Update()
     {
