@@ -10,6 +10,11 @@ public class MouseLight : MonoBehaviour
     private float moveSpeed = 0.04f; // 0 to 1
     private bool canMove = false;
 
+    private void Start()
+    {
+        position = transform.position;
+    }
+
     private void Update()
     {
         if (canMove)
@@ -18,7 +23,7 @@ public class MouseLight : MonoBehaviour
 
     private void Move()
     {
-        if (Input.GetButton("Fire")) {
+        if (Input.GetButton("Fire1")) {
             Vector2 minScreenBounds = Camera.main.ScreenToWorldPoint(new Vector2(0, 0));
             Vector2 maxScreenBounds = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
             destination = Camera.main.ScreenToWorldPoint(Input.mousePosition);
