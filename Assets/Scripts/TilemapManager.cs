@@ -28,18 +28,12 @@ public class TilemapManager : MonoBehaviour
 
     private void Save()
     {
-        BoundsInt bounds = tilemap.cellBounds;
-        TileBase[] allTiles = tilemap.GetTilesBlock(bounds);
         TilemapDatas tilemapDatas = new TilemapDatas();
         tilemapDatas.tilesPos = new List<Vector3Int>();
 
-        for (int x = 0; x < bounds.size.x; x++) {
-            for (int y = 0; y < bounds.size.y; y++) {
-                TileBase tile = allTiles[x + y * bounds.size.x];
-                if (tile != null)
-                    tilemapDatas.tilesPos.Add(new Vector3Int(x, y, 0));
-            }
-        }
+        foreach (Vector3Int tilePos in tilemap.cellBounds.allPositionsWithin)
+            if (tilemap.HasTile(tilePos))
+                tilemapDatas.tilesPos.Add(tilePos);
         string json = JsonUtility.ToJson(tilemapDatas);
         File.WriteAllText(filePath, json);
         Debug.Log("Save in : " + filePath);
@@ -67,7 +61,7 @@ public class TilemapDatas
     public List<Vector3Int> tilesPos;
 }
 
-/* Tiles for autotiling :
+/* Tiles use for autotiling :
 0
 1
 2
@@ -78,7 +72,7 @@ public class TilemapDatas
 7
 8
 9
-10
+17
 145
 154
 67
@@ -103,4 +97,6 @@ public class TilemapDatas
 85
 142
 124
+118
+140
 */
