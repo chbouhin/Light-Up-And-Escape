@@ -38,6 +38,7 @@ public class ButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     private void Start()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         image = transform.GetChild(0).GetComponent<Image>();
         if (spriteMouseOn)
             spriteMouseOut = image.sprite;
@@ -101,8 +102,6 @@ public class ButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void OnClick()
     {
-        if (audioManager == null)
-            audioManager = FindObjectOfType<AudioManager>();
         audioManager.Play(sound);
         buttonClicked = true;
     }

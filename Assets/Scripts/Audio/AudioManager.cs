@@ -97,7 +97,7 @@ public class AudioManager : MonoBehaviour
     {
         allVolumes = volume;
         foreach (Sound sound in sounds)
-            sound.source.volume = soundVolume * allVolumes;//si il y a 2 audiomanager, il ne detect plus l audiosource dans sounds[0].source mais detect toujours gameMusics
+            sound.source.volume = soundVolume * allVolumes;
         music.volume = musicVolume * allVolumes;
     }
 
