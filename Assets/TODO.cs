@@ -16,10 +16,12 @@
     particules
     plaque de pression
     caisses
-
-        Todo :
+    gestion de mort
     Vide
     Camera qui se bloque si hors map
+    defaite
+
+        Todo :
     ennemi type 1
     ennemi type 2
     bouton
@@ -30,9 +32,9 @@
     tuto
     6 lvl
     bruitage de jeu (saut, mort, fin, ...)
-    gestion de mort
     étoile en jeu (système de point)
     animation des étoiles dans le lvl select
+    victoire
 
 
 

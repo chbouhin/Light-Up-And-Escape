@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MouseLight : Player
 {
-    [SerializeField] private Rigidbody2D rb;
     private Vector2 position;
     private Vector2 destination;
     private float moveSpeed = 0.04f; // 0 to 1
@@ -16,13 +15,13 @@ public class MouseLight : Player
 
     private void Update()
     {
-        if (canMove)
+        if (gameManager.isInGame)
             Move();
     }
 
     private void Move()
     {
-        if (Input.GetButton("Fire1")) {
+        if (Input.GetButton("MouseLightMovement")) {
             Vector2 minScreenBounds = Camera.main.ScreenToWorldPoint(new Vector2(0, 0));
             Vector2 maxScreenBounds = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
             destination = Camera.main.ScreenToWorldPoint(Input.mousePosition);

@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private string pauseSound;
     [SerializeField] private Player square;
     [SerializeField] private Player mouseLight;
+    [HideInInspector] public bool isInGame = false;
     private AudioManager audioManager;
     private bool isPause = false;
 
@@ -20,21 +21,20 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Cancel"))
+        if (Input.GetButtonDown("Cancel") && isInGame != isPause)
             PauseUnpause();
     }
 
     public void PauseUnpause()
     {
         isPause = !isPause;
+        isInGame = !isInGame;
         pause.SetBool("open", isPause);
         audioManager.Play(pauseSound);
         Time.timeScale = isPause ? 0f : 1f;
         if (isPause)
             foreach (ButtonManager button in buttonsInPause)
                 button.Reset();
-        square.SetCanMove(!isPause);
-        mouseLight.SetCanMove(!isPause);
     }
 
     public void Unpause()

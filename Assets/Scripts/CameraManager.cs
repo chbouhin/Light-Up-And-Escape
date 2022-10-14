@@ -18,7 +18,7 @@ public class CameraManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Fire2"))
+        if (Input.GetButtonDown("ChangeCamera"))
             cameraFollowSquare = !cameraFollowSquare;
 
         if (cameraFollowSquare)

@@ -13,8 +13,8 @@ public class Countdown : MonoBehaviour
     private void Start()
     {
         text = transform.GetComponent<TextMeshProUGUI>();
-        // StartCoroutine(StartCountdown(3)); TEMPORAIRE
-        StartCoroutine(StartCountdown(0));//  TEMPORAIRE
+        // StartCoroutine(StartCountdown(3));// TEMPORAIRE
+        StartCoroutine(StartCountdown(0));// TEMPORAIRE
     }
 
     private IEnumerator StartCountdown(int countdown)
@@ -26,8 +26,7 @@ public class Countdown : MonoBehaviour
             countdown--;
         }
         text.text = "GO";
-        mouseLight.SetCanMove(true);
-        square.SetCanMove(true);
+        FindObjectOfType<GameManager>().isInGame = true;
         yield return new WaitForSeconds(2f);
         gameObject.SetActive(false);
     }

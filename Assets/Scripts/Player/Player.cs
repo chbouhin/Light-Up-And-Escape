@@ -5,15 +5,21 @@ using UnityEngine;
 public abstract class Player : MonoBehaviour
 {
     [SerializeField] private Animator defeat;
-    protected bool canMove = false;
+    [SerializeField] protected Rigidbody2D rb;
+    protected GameManager gameManager;
+    protected bool isAlive = true;
 
-    public void SetCanMove(bool canMove)
+    private void Awake()
     {
-        this.canMove = canMove;
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     protected void Die()
     {
-        defeat.SetBool("open", true);
+        if (isAlive) {
+            FindObjectOfType<GameManager>().isInGame = false;
+            defeat.SetBool("open", true);
+            isAlive = false;
+        }
     }
 }

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Square : Player
 {
-    [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Animator animator;
@@ -18,12 +17,14 @@ public class Square : Player
 
     private void Update()
     {
-        if (canMove) {
-            CheckIfGrounded();
+        CheckIfGrounded();
+        if (gameManager.isInGame) {
             CheckIfMoving();
             CheckIfJump();
-            CheckIfFall();
+            if (transform.position.y < -6f)
+                Die();
         }
+        CheckIfFall();
     }
 
     private void FixedUpdate()
@@ -49,9 +50,9 @@ public class Square : Player
 
     private void CheckIfJump()
     {
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetButtonDown("SquareJump") && isGrounded)
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-        else if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
+        else if (Input.GetButtonUp("SquareJump") && rb.velocity.y > 0f)
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
     }
 
@@ -64,5 +65,11 @@ public class Square : Player
             rotationZ = 0f;
             transform.GetChild(0).rotation = Quaternion.identity;
         }
+    }
+
+    public void StopMoving()
+    {
+        horizontal = 0f;
+        animator.SetBool("isMoving", false);
     }
 }
