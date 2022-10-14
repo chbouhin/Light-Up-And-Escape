@@ -14,18 +14,18 @@
     animations
     gestions de scènes
     particules
+    plaque de pression
+    caisses
 
         Todo :
     Vide
-    Camera qui se bloque si horsmap
+    Camera qui se bloque si hors map
     ennemi type 1
     ennemi type 2
     bouton
-    plaque de pression
     clefs
     porte
     grille
-    caisses
     mapage des touches
     tuto
     6 lvl
@@ -39,11 +39,11 @@
         Bonus Done :
     autotile
     2 systèmes de caméra
+    lumière qui s'active ou non en fonction du courant (interupteur, ...)
 
         Bonus Todo :
     Création de carte pour les joueurs
     block rebondissant
-    lumière qui s'active ou non en fonction du courant (interupteur, ...)
     checkpoint
 
 */

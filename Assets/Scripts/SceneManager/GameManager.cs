@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private GameObject pause;
+    [SerializeField] private Animator pause;
     [SerializeField] private List<ButtonManager> buttonsInPause;
     [SerializeField] private string pauseSound;
-    [SerializeField] private Square square;
-    [SerializeField] private MouseLight mouseLight;
+    [SerializeField] private Player square;
+    [SerializeField] private Player mouseLight;
     private AudioManager audioManager;
+    private bool isPause = false;
 
     private void Start()
     {
@@ -25,13 +26,20 @@ public class GameManager : MonoBehaviour
 
     public void PauseUnpause()
     {
+        isPause = !isPause;
+        pause.SetBool("open", isPause);
         audioManager.Play(pauseSound);
-        pause.SetActive(!pause.activeSelf);
-        Time.timeScale = pause.activeSelf ? 0f : 1f;
-        if (!pause.activeSelf)
+        Time.timeScale = isPause ? 0f : 1f;
+        if (isPause)
             foreach (ButtonManager button in buttonsInPause)
                 button.Reset();
-        square.SetCanMove(!pause.activeSelf);
-        mouseLight.SetCanMove(!pause.activeSelf);
+        square.SetCanMove(!isPause);
+        mouseLight.SetCanMove(!isPause);
+    }
+
+    public void Unpause()
+    {
+        isPause = true;
+        PauseUnpause();
     }
 }

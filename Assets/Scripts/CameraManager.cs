@@ -47,6 +47,8 @@ public class CameraManager : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (position.y < 0)
+            position.y = 0;
         transform.position = position;
     }
 }

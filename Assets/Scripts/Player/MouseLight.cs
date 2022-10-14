@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MouseLight : MonoBehaviour
+public class MouseLight : Player
 {
     [SerializeField] private Rigidbody2D rb;
     private Vector2 position;
     private Vector2 destination;
     private float moveSpeed = 0.04f; // 0 to 1
-    private bool canMove = false;
 
     private void Start()
     {
@@ -35,10 +34,5 @@ public class MouseLight : MonoBehaviour
     private void FixedUpdate()
     {
         rb.MovePosition(position);
-    }
-
-    public void SetCanMove(bool canMove)
-    {
-        this.canMove = canMove;
     }
 }
