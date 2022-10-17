@@ -479,6 +479,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cc80e71d53e43b4180f951f7df5258c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputManager: {fileID: 1143857031}
   defeat: {fileID: 1747171050}
   rb: {fileID: 235363858}
   groundCheck: {fileID: 894548145}
@@ -688,6 +689,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5e4854b61510944a9b2c53ccf9a0206, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputManager: {fileID: 1143857031}
   defeat: {fileID: 1747171050}
   rb: {fileID: 277826817}
 --- !u!114 &277826815
@@ -6148,6 +6150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70a21c724f06bf94a939a7feda1b05d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputManager: {fileID: 1143857031}
   square: {fileID: 235363855}
   mouseLight: {fileID: 277826816}
 --- !u!1 &531218439
@@ -9077,6 +9080,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 870276bda6e878446b8542123fa19c3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1143857031 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3760380545966468784, guid: f5f9d6c4edf9ca040a165ff5a3bd0d39, type: 3}
+  m_PrefabInstance: {fileID: 494542940}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0912c3881bd5ad844b6ca80abe768276, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1148038704
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10186,6 +10200,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &1755020940 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7444388532532588210, guid: 93f9a0e93cea84242a6d678ad989e7f4, type: 3}
+  m_PrefabInstance: {fileID: 79048533}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1755020941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755020940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0912c3881bd5ad844b6ca80abe768276, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1757297221
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10345,6 +10376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78769d3785af4ca45aadb3a394eebb7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputManager: {fileID: 1143857031}
   pause: {fileID: 1983994793}
   buttonsInPause:
   - {fileID: 1808467186}

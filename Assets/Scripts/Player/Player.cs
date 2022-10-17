@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class Player : MonoBehaviour
 {
+    [SerializeField] protected InputManager inputManager;
     [SerializeField] private Animator defeat;
     [SerializeField] protected Rigidbody2D rb;
     protected GameManager gameManager;

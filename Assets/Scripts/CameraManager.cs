@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraManager : MonoBehaviour
 {
+    [SerializeField] private InputManager inputManager;
     [SerializeField] private Transform square;
     [SerializeField] private Transform mouseLight;
     private float moveSpeed = 0.1f; // 0 to 1
@@ -18,7 +19,7 @@ public class CameraManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("ChangeCamera"))
+        if (inputManager.GetKeyDown("ChangeCamera"))
             cameraFollowSquare = !cameraFollowSquare;
 
         if (cameraFollowSquare)

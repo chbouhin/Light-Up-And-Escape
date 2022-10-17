@@ -20,6 +20,8 @@
     Vide
     Camera qui se bloque si hors map
     defaite
+    victoire
+    mapage des touches
 
         Todo :
     ennemi type 1
@@ -28,13 +30,11 @@
     clefs
     porte
     grille
-    mapage des touches
     tuto
     6 lvl
     bruitage de jeu (saut, mort, fin, ...)
     étoile en jeu (système de point)
     animation des étoiles dans le lvl select
-    victoire
 
 
 

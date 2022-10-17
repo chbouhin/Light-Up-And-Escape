@@ -21,7 +21,7 @@ public class SliderManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     private void Awake()
     {
-        image = transform.GetChild(2).GetChild(0).GetComponent<Image>();
+        image = transform.GetChild(4).GetChild(0).GetComponent<Image>();
         spriteMouseOut = image.sprite;
         isLoading = false;
     }

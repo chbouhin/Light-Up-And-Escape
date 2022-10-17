@@ -50,9 +50,9 @@ public class Square : Player
 
     private void CheckIfJump()
     {
-        if (Input.GetButtonDown("SquareJump") && isGrounded)
+        if (inputManager.GetKeyDown("SquareJump") && isGrounded)
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-        else if (Input.GetButtonUp("SquareJump") && rb.velocity.y > 0f)
+        else if (inputManager.GetKeyUp("SquareJump") && rb.velocity.y > 0f)
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
     }
 

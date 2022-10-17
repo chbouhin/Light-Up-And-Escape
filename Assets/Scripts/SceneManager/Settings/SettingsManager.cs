@@ -2,25 +2,52 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class SettingsManager : MonoBehaviour
 {
     [SerializeField] private SceneLoader sceneLoader;
     [SerializeField] private ButtonManager buttonToSettings;
     [SerializeField] private ButtonManager buttonToBack;
-    [SerializeField] private SliderManager sliderAllVolumes;
-    [SerializeField] private SliderManager sliderMusic;
-    [SerializeField] private SliderManager sliderSound;
+    [SerializeField] private List<SliderManager> audioSliders;
+    [HideInInspector] public ButtonInputs buttonInputs;
     private AudioManager audioManager;
     private float ratioVolume = 100f;
+    public static class Volumes {
+        public const int all = 0;
+        public const int music = 1;
+        public const int sound = 2;
+    };
 
     private void Start()
     {
+        InitVolumes();
+    }
+
+    private void Update()
+    {
+        if (buttonInputs != null && Input.anyKeyDown)
+            foreach (KeyCode key in System.Enum.GetValues(typeof(KeyCode)))
+                if (Input.GetKeyDown(key)) {
+                    if (key == KeyCode.Mouse0)
+                        StartCoroutine(WaitForMouseInput(key));
+                    else
+                        buttonInputs.SetInput(key);
+                }
+    }
+
+    private IEnumerator WaitForMouseInput(KeyCode key)
+    {
+        yield return new WaitForSecondsRealtime(0.1f);
+        if (buttonInputs != null)
+            buttonInputs.SetInput(key);
+    }
+
+    private void InitVolumes()
+    {
         audioManager = FindObjectOfType<AudioManager>();
-        sliderAllVolumes.SetValue(audioManager.GetAllVolumes() * ratioVolume);
-        sliderMusic.SetValue(audioManager.GetMusicVolume() * ratioVolume);
-        sliderSound.SetValue(audioManager.GetSoundVolume() * ratioVolume);
+        audioSliders[Volumes.all].SetValue(audioManager.GetAllVolumes() * ratioVolume);
+        audioSliders[Volumes.music].SetValue(audioManager.GetMusicVolume() * ratioVolume);
+        audioSliders[Volumes.sound].SetValue(audioManager.GetSoundVolume() * ratioVolume);
     }
 
     public void ShowSettings()
@@ -49,7 +76,7 @@ public class SettingsManager : MonoBehaviour
     {
         if (!audioManager)
             return;
-        float volume = sliderAllVolumes.GetValue() / ratioVolume;
+        float volume = audioSliders[Volumes.all].GetValue() / ratioVolume;
         audioManager.SetAllVolumes(volume);
         PlayerPrefs.SetFloat("AllVolumes", volume);
     }
@@ -58,7 +85,7 @@ public class SettingsManager : MonoBehaviour
     {
         if (!audioManager)
             return;
-        float volume = sliderMusic.GetValue() / ratioVolume;
+        float volume = audioSliders[Volumes.music].GetValue() / ratioVolume;
         audioManager.SetMusicVolume(volume);
         PlayerPrefs.SetFloat("MusicVolume", volume);
     }
@@ -67,8 +94,20 @@ public class SettingsManager : MonoBehaviour
     {
         if (!audioManager)
             return;
-        float volume = sliderSound.GetValue() / ratioVolume;
+        float volume = audioSliders[Volumes.sound].GetValue() / ratioVolume;
         audioManager.SetSoundVolume(volume);
         PlayerPrefs.SetFloat("SoundVolume", volume);
+    }
+
+    /* ========== INPUT ========== */
+
+    public void CancelInput()
+    {
+        buttonInputs.Cancel();
+    }
+
+    public void DeleteInput()
+    {
+        buttonInputs.Delete();
     }
 }

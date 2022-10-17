@@ -343,4 +343,5 @@ MonoBehaviour:
   spriteMouseOn: {fileID: 21300000, guid: a1e28baeea0d230458e820845e16472b, type: 3}
   rectTransform: {fileID: 4846915604627264688}
   haveText: 1
+  useScale: 0
   sound: Click

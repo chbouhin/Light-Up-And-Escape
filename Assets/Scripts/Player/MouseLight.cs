@@ -21,7 +21,7 @@ public class MouseLight : Player
 
     private void Move()
     {
-        if (Input.GetButton("MouseLightMovement")) {
+        if (inputManager.GetKey("MouseLightMove")) {
             Vector2 minScreenBounds = Camera.main.ScreenToWorldPoint(new Vector2(0, 0));
             Vector2 maxScreenBounds = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
             destination = Camera.main.ScreenToWorldPoint(Input.mousePosition);

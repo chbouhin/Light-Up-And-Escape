@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class VictoryChest : MonoBehaviour
 {
+    private InputManager inputManager;
     private Animator victory;
     private bool playerIsOn = false;
 
+    private void Start()
+    {
+        inputManager = FindObjectOfType<InputManager>();
+    }
+
     private void Update()
     {
-        if (playerIsOn && Input.GetButtonDown("Interact")) {
+        if (playerIsOn && inputManager.GetKeyDown("SquareInteract")) {
             FindObjectOfType<GameManager>().isInGame = false;
             FindObjectOfType<Square>().StopMoving();
             victory = GameObject.Find("Victory").GetComponent<Animator>();

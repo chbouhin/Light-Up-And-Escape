@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private InputManager inputManager;
     [SerializeField] private Animator pause;
     [SerializeField] private List<ButtonManager> buttonsInPause;
     [SerializeField] private string pauseSound;
@@ -21,7 +22,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Cancel") && isInGame != isPause)
+        if (inputManager.GetKeyDown("PauseUnpause") && isInGame != isPause)
             PauseUnpause();
     }
 
