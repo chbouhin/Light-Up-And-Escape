@@ -12,7 +12,7 @@ public class InputManager : MonoBehaviour
 
     private void Awake()
     {
-        filePath = Application.dataPath + "/InputsData.json";
+        filePath = Application.dataPath + "/JsonData/InputsData.json";
         CreateKeyWords();
         Load();
     }

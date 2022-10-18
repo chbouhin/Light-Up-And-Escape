@@ -51,7 +51,7 @@ public class TilemapManager : MonoBehaviour
     public void SetLevelIndex(int levelIndex)
     {
         this.levelIndex = levelIndex;
-        filePath = Application.dataPath + "/LevelsData/Level_" + levelIndex + ".json";
+        filePath = Application.dataPath + "/JsonData/LevelsData/Level_" + levelIndex + ".json";
     }
 }
 

@@ -7,11 +7,11 @@ public class Square : Player
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Animator animator;
+    [HideInInspector] public float moveSpeed = 5f;
+    [HideInInspector] public float jumpForce = 7f;
+    [HideInInspector] public bool isGrounded = true;
     private float horizontal;
-    private float moveSpeed = 5f;
-    private float movingDirection = 1; // -1 for left | 1 for right
-    private float jumpForce = 7f;
-    private bool isGrounded = true;
+    private float lastDirection = 1f; // -1 for left | 1 for right
     private float rotationZ = 0f;
     private float rotationSpeed = 275f;
 
@@ -24,7 +24,7 @@ public class Square : Player
             if (transform.position.y < -6f)
                 Die();
         }
-        CheckIfFall();
+        CheckIfFall();//only stop the rotation if grounded
     }
 
     private void FixedUpdate()
@@ -40,12 +40,16 @@ public class Square : Player
 
     private void CheckIfMoving()
     {
-        horizontal = Input.GetAxisRaw("Horizontal");
+        horizontal = 0f;
+        if (inputManager.GetKey("SquareMoveLeft"))
+            horizontal -= 1f;
+        if (inputManager.GetKey("SquareMoveRight"))
+            horizontal += 1f;
         animator.SetBool("isMoving", horizontal != 0f);
         if (horizontal > 0f)
-            movingDirection = 1;
+            lastDirection = 1;
         else if (horizontal < 0f)
-            movingDirection = -1;
+            lastDirection = -1;
     }
 
     private void CheckIfJump()
@@ -59,7 +63,7 @@ public class Square : Player
     private void CheckIfFall()
     {
         if (!isGrounded) {
-            rotationZ -= Time.deltaTime * rotationSpeed * movingDirection;
+            rotationZ -= Time.deltaTime * rotationSpeed * lastDirection;
             transform.GetChild(0).rotation = Quaternion.Euler(0f, 0f, rotationZ);
         } else {
             rotationZ = 0f;

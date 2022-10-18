@@ -12,7 +12,7 @@ public class LevelSelectionManager : MonoBehaviour
 
     private void Start()
     {
-        int fileCount = System.IO.Directory.GetFiles(Application.dataPath + "/LevelsData", "Level_*.json").Length;
+        int fileCount = System.IO.Directory.GetFiles(Application.dataPath + "/JsonData/LevelsData", "Level_*.json").Length;
         for (int count = 1; count <= fileCount; count++) {
             GameObject newLevelSelectButton = Instantiate(levelSelectButton, levelsSelectContent);
             newLevelSelectButton.transform.GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>().text = count.ToString();

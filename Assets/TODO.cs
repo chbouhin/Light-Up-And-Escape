@@ -35,6 +35,7 @@
     bruitage de jeu (saut, mort, fin, ...)
     étoile en jeu (système de point)
     animation des étoiles dans le lvl select
+    revoir audioManager pour les sons
 
 
 
@@ -42,10 +43,13 @@
     autotile
     2 systèmes de caméra
     lumière qui s'active ou non en fonction du courant (interupteur, ...)
+    move et saute moins haut avec une caisse
+    bordure géré et physique amélioré
 
         Bonus Todo :
     Création de carte pour les joueurs
     block rebondissant
     checkpoint
+    afficher la touche sur obj si interactable
 
 */
