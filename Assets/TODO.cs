@@ -15,18 +15,18 @@
     gestions de scènes
     particules
     plaque de pression
-    caisses
+    caisses (modification de pull/push)
     gestion de mort
     Vide
     Camera qui se bloque si hors map
     defaite
     victoire
     mapage des touches
+    bouton switch
 
         Todo :
     ennemi type 1
     ennemi type 2
-    bouton
     clefs
     porte
     grille

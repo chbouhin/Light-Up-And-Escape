@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class InteractableObj : MonoBehaviour
 {
-    protected InputManager inputManager;
+    private InputManager inputManager;
     private bool playerIsTouching = false;
 
     protected virtual void Start()
