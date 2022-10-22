@@ -32,7 +32,6 @@ public class BoxManager : InteractableObj
         }
     }
 
-
     protected override void ObjAction()
     {
         grab = !grab;

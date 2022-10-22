@@ -177,4 +177,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 084181dd514a2ae49af0587193c993f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  victory: {fileID: 0}
+  squareCanInteract: 1
+  mouseLightCanInteract: 0
+  animator: {fileID: 6491913702539827632}
