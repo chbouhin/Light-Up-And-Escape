@@ -95,8 +95,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9667e6e7f8f87304ebc9a31e7cf9bf7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  squareCanInteract: 1
+  mouseLightCanInteract: 1
+  sizeWhenGrab: 0.4
   rigidBody: {fileID: 3577951827066795359}
-  boxCollider: {fileID: 1518750911181478944}
+  normalBoxCollider: {fileID: 1518750911181478944}
+  triggerBoxCollider: {fileID: 8456171472611996772}
   groundLayer:
     serializedVersion: 2
     m_Bits: 8

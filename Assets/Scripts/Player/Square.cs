@@ -10,6 +10,8 @@ public class Square : Player
     [HideInInspector] public float moveSpeed = 5f;
     [HideInInspector] public float jumpForce = 7f;
     [HideInInspector] public bool isGrounded = true;
+    [HideInInspector] public Held held;
+    private bool canThrow = true;
     private float horizontal;
     private float lastDirection = 1f; // -1 for left | 1 for right
     private float rotationZ = 0f;
@@ -23,6 +25,8 @@ public class Square : Player
             CheckIfJump();
             if (transform.position.y < -6f)
                 Die();
+            if (inputManager.GetKeyDown("SquareInteract"))
+                CheckIfHeld();
         }
         CheckIfFall();//only stop the rotation if grounded
     }
@@ -71,9 +75,27 @@ public class Square : Player
         }
     }
 
+    private void CheckIfHeld()
+    {
+        if (held != null && canThrow) {
+            held.IsThrow();
+            held = null;
+        }
+        canThrow = true;
+    }
+
     public void StopMoving()
     {
         horizontal = 0f;
         animator.SetBool("isMoving", false);
+    }
+
+    public bool HoldObj(Held held)
+    {
+        if (this.held != null )
+            return false;
+        this.held = held;
+        canThrow = false;
+        return true;
     }
 }
