@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class Player : MonoBehaviour
 {
     [SerializeField] protected InputManager inputManager;
-    [SerializeField] private Animator defeat;
+    [SerializeField] private Popup defeat;
     [SerializeField] protected Rigidbody2D rb;
     protected GameManager gameManager;
     protected bool isAlive = true;
@@ -19,7 +19,7 @@ public abstract class Player : MonoBehaviour
     {
         if (isAlive) {
             FindObjectOfType<GameManager>().isInGame = false;
-            defeat.SetBool("open", true);
+            defeat.OpenClose(true);
             isAlive = false;
         }
     }

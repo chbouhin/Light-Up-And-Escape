@@ -11,6 +11,6 @@ public class VictoryChest : InteractableObj
         animator.SetBool("open", true);
         FindObjectOfType<GameManager>().isInGame = false;
         FindObjectOfType<Square>().StopMoving();
-        GameObject.Find("Victory").GetComponent<Animator>().SetBool("open", true);
+        GameObject.Find("Victory").GetComponent<Popup>().OpenClose(true);
     }
 }
