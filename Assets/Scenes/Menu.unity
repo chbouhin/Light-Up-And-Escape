@@ -2255,6 +2255,14 @@ PrefabInstance:
       propertyPath: buttonToSettings
       value: 
       objectReference: {fileID: 919773738}
+    - target: {fileID: 5983517618554293623, guid: f5f9d6c4edf9ca040a165ff5a3bd0d39, type: 3}
+      propertyPath: buttonsToSettings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5983517618554293623, guid: f5f9d6c4edf9ca040a165ff5a3bd0d39, type: 3}
+      propertyPath: buttonsToSettings.Array.data[0]
+      value: 
+      objectReference: {fileID: 919773738}
     - target: {fileID: 6126461974621146260, guid: f5f9d6c4edf9ca040a165ff5a3bd0d39, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1

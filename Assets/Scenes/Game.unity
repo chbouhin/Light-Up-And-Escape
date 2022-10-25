@@ -806,7 +806,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 585885663322711786, guid: 0f03bf4050231da469b91a3d83cbcc22, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 585885663322711786, guid: 0f03bf4050231da469b91a3d83cbcc22, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 585885663322711786, guid: 0f03bf4050231da469b91a3d83cbcc22, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1409911522805033541, guid: 0f03bf4050231da469b91a3d83cbcc22, type: 3}
       propertyPath: m_Name
@@ -814,7 +822,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3018278693686154855, guid: 0f03bf4050231da469b91a3d83cbcc22, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3018278693686154855, guid: 0f03bf4050231da469b91a3d83cbcc22, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3018278693686154855, guid: 0f03bf4050231da469b91a3d83cbcc22, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8410851127980606819, guid: 0f03bf4050231da469b91a3d83cbcc22, type: 3}
       propertyPath: m_RootOrder
@@ -5975,6 +5991,22 @@ PrefabInstance:
       propertyPath: buttonToSettings
       value: 
       objectReference: {fileID: 1018255901}
+    - target: {fileID: 5983517618554293623, guid: f5f9d6c4edf9ca040a165ff5a3bd0d39, type: 3}
+      propertyPath: buttonsToSettings.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5983517618554293623, guid: f5f9d6c4edf9ca040a165ff5a3bd0d39, type: 3}
+      propertyPath: buttonsToSettings.Array.data[0]
+      value: 
+      objectReference: {fileID: 1018255901}
+    - target: {fileID: 5983517618554293623, guid: f5f9d6c4edf9ca040a165ff5a3bd0d39, type: 3}
+      propertyPath: buttonsToSettings.Array.data[1]
+      value: 
+      objectReference: {fileID: 1696772031}
+    - target: {fileID: 5983517618554293623, guid: f5f9d6c4edf9ca040a165ff5a3bd0d39, type: 3}
+      propertyPath: buttonsToSettings.Array.data[2]
+      value: 
+      objectReference: {fileID: 911991155}
     - target: {fileID: 6126461974621146260, guid: f5f9d6c4edf9ca040a165ff5a3bd0d39, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -7005,6 +7037,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &911991155 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5142315034422260792, guid: 43319aff73f9cb44e9f7beb065bcb29d, type: 3}
+  m_PrefabInstance: {fileID: 2134790851}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3c210c370e35b54d870987e579d0ab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &920050405
@@ -9528,11 +9571,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5789200093759024975, guid: ab9278aa8a6f856468c48e893720a765, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.11
+      value: -3.33
       objectReference: {fileID: 0}
     - target: {fileID: 5789200093759024975, guid: ab9278aa8a6f856468c48e893720a765, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.14
+      value: 1.64
       objectReference: {fileID: 0}
     - target: {fileID: 5789200093759024975, guid: ab9278aa8a6f856468c48e893720a765, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9860,11 +9903,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4463562904624977865, guid: 34b98314a6b944c4f9ef2798424d12b7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.61
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 4463562904624977865, guid: 34b98314a6b944c4f9ef2798424d12b7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.89
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 4463562904624977865, guid: 34b98314a6b944c4f9ef2798424d12b7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10425,6 +10468,16 @@ MonoBehaviour:
   tilemap: {fileID: 1073706470}
   autoTile: {fileID: 11400000, guid: 146eb2cf759f89840bbcd68a8d94152b, type: 2}
   mapElementsObj: {fileID: 1632230149}
+  box: {fileID: 5789200093759024974, guid: ab9278aa8a6f856468c48e893720a765, type: 3}
+  doorOff: {fileID: 1409911522805033541, guid: 0f03bf4050231da469b91a3d83cbcc22, type: 3}
+  doorOn: {fileID: 7232979976358406864, guid: 7d36a7a322c6aab4b96e1940d4b6a333, type: 3}
+  key: {fileID: 6929204876554847193, guid: 8259f9887e8403042aae269d3ad1f208, type: 3}
+  lampOff: {fileID: 3226521009676847256, guid: c13263f1f05170f4e849875cee5c46d0, type: 3}
+  lampOn: {fileID: 1216030651170343933, guid: e6a7e797130a02644baeb00c149d8a3b, type: 3}
+  torch: {fileID: 8183758440019976681, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+  pressurePlate: {fileID: 8595589232852749146, guid: 4510bebf89578ba4ea41ff7c5f2abb45, type: 3}
+  switchButton: {fileID: 8834321601338949867, guid: 34b98314a6b944c4f9ef2798424d12b7, type: 3}
+  victoryChest: {fileID: 6930122694965717508, guid: cea950ff3b9b0804f967eaec919f19f7, type: 3}
 --- !u!4 &1670269121
 Transform:
   m_ObjectHideFlags: 0
@@ -10571,6 +10624,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1696772031 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5142315034422260792, guid: 43319aff73f9cb44e9f7beb065bcb29d, type: 3}
+  m_PrefabInstance: {fileID: 1533723377}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3c210c370e35b54d870987e579d0ab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1747171048

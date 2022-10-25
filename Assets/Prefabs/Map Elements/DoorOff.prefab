@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 7869442000438698473}
   m_Layer: 0
   m_Name: DoorOff
-  m_TagString: Untagged
+  m_TagString: DoorOff
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 7899370269390676379}
   m_Layer: 0
   m_Name: Down
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

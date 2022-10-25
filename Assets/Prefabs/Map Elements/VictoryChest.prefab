@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 6839551181271661592}
   m_Layer: 0
   m_Name: VictoryChest
-  m_TagString: Untagged
+  m_TagString: VictoryChest
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

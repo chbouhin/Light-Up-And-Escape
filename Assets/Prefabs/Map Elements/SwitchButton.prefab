@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2309523962273456491}
   m_Layer: 0
   m_Name: SwitchButton
-  m_TagString: Untagged
+  m_TagString: SwitchButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,6 +114,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab4acc0a27cd9dc4c9552a8f938a8efa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  squareCanInteract: 1
+  mouseLightCanInteract: 1
   activablesObj: []
   image: {fileID: 2765238144250170447}
   spriteOn: {fileID: -250716768, guid: 8ac0a2f4aefc59c4084f9803a8dfc6a5, type: 3}

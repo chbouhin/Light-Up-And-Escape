@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class SwitchButton : InteractableObj
 {
-    [SerializeField] private List<ActivableObj> activablesObj;
+    public List<ActivableObj> activablesObj;
     [SerializeField] private SpriteRenderer image;
     [SerializeField] private Sprite spriteOn;
     [SerializeField] private Sprite spriteOff;

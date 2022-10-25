@@ -19,6 +19,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorOn
       objectReference: {fileID: 0}
+    - target: {fileID: 1409911522805033541, guid: 0f03bf4050231da469b91a3d83cbcc22, type: 3}
+      propertyPath: m_TagString
+      value: DoorOn
+      objectReference: {fileID: 0}
     - target: {fileID: 5426364084647646317, guid: 0f03bf4050231da469b91a3d83cbcc22, type: 3}
       propertyPath: m_LocalPosition.y
       value: -2.05

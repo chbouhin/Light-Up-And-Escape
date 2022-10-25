@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class SettingsManager : MonoBehaviour
 {
     [SerializeField] private SceneLoader sceneLoader;
-    [SerializeField] private ButtonManager buttonToSettings;
+    [SerializeField] private List<ButtonManager> buttonsToSettings;
     [SerializeField] private ButtonManager buttonToBack;
     [SerializeField] private List<SliderManager> audioSliders;
     [HideInInspector] public ButtonInputs buttonInputs;
@@ -58,7 +58,8 @@ public class SettingsManager : MonoBehaviour
 
     public void HideSettings()
     {
-        buttonToSettings.Reset();
+        foreach (ButtonManager buttonToSettings in buttonsToSettings)
+            buttonToSettings.Reset();
         StartCoroutine(HideShowSettingsWithTransition(false));
     }
 

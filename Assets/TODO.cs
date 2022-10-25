@@ -24,11 +24,11 @@
     mapage des touches
     bouton switch
     porte
+    clefs
 
         Todo :
     ennemi type 1
     ennemi type 2
-    clefs
     grille
     tuto
     6 lvl
@@ -53,6 +53,5 @@
     afficher la touche sur obj si interactable
 
 
-    contacter lundi 24/10 Gabriel Toublanc
 
 */

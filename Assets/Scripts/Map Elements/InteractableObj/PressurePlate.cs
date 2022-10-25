@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PressurePlate : MonoBehaviour
 {
-    [SerializeField] private List<ActivableObj> activablesObj;
+    public List<ActivableObj> activablesObj;
     [SerializeField] private Animator animator;
     private int nbOfCol = 0;
 

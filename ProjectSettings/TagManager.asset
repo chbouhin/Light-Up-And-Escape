@@ -7,7 +7,16 @@ TagManager:
   - Square
   - MouseLight
   - Box
+  - DoorOff
+  - DoorOn
   - Door
+  - Key
+  - LampOff
+  - LampOn
+  - Torch
+  - PressurePlate
+  - SwitchButton
+  - VictoryChest
   layers:
   - Default
   - TransparentFX
