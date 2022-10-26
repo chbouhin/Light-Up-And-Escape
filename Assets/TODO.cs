@@ -26,11 +26,11 @@
     porte
     clefs
     bruitage de jeu (saut, mort, fin, ...)
+    grille
 
         Todo :
     ennemi type 1
     ennemi type 2
-    grille
     tuto
     6 lvl
     étoile en jeu (système de point)

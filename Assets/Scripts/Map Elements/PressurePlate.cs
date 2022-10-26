@@ -7,6 +7,7 @@ public class PressurePlate : MonoBehaviour
     public List<ActivableObj> activablesObj;
     [SerializeField] private Animator animator;
     [SerializeField] private GameObject linePowerObj;
+    private List<LinePower> linePowers = new List<LinePower>();
     private int nbOfCol = 0;
 
     private void Start()
@@ -15,6 +16,7 @@ public class PressurePlate : MonoBehaviour
             LinePower linePower = Instantiate(linePowerObj).GetComponent<LinePower>();
             linePower.startPos = transform.position;
             linePower.endPos = activableObj.transform.position;
+            linePowers.Add(linePower);
         }
     }
 
@@ -26,6 +28,8 @@ public class PressurePlate : MonoBehaviour
                 animator.SetBool("isPressing", true);
                 foreach (ActivableObj obj in activablesObj)
                     obj.ActivateObj(true);
+                foreach (LinePower linePower in linePowers)
+                    linePower.SendPower(true);
             }
         }
     }
@@ -38,6 +42,8 @@ public class PressurePlate : MonoBehaviour
                 animator.SetBool("isPressing", false);
                 foreach (ActivableObj obj in activablesObj)
                     obj.ActivateObj(false);
+                foreach (LinePower linePower in linePowers)
+                    linePower.SendPower(false);
             }
         }
     }

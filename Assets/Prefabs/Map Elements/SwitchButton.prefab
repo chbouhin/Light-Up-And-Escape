@@ -101,7 +101,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.2
+  m_Radius: 0.25
 --- !u!114 &2309523962273456491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,3 +120,4 @@ MonoBehaviour:
   image: {fileID: 2765238144250170447}
   spriteOn: {fileID: -250716768, guid: 8ac0a2f4aefc59c4084f9803a8dfc6a5, type: 3}
   spriteOff: {fileID: 2004846142, guid: 8ac0a2f4aefc59c4084f9803a8dfc6a5, type: 3}
+  linePowerObj: {fileID: 3882983912186896464, guid: 960c9d59bbb973a458f8351196b0254c, type: 3}
