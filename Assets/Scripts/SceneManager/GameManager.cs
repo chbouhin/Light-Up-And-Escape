@@ -7,7 +7,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private InputManager inputManager;
     [SerializeField] private Popup pause;
     [SerializeField] private List<ButtonManager> buttonsInPause;
-    [SerializeField] private string pauseSound;
     [SerializeField] private Player square;
     [SerializeField] private Player mouseLight;
     [HideInInspector] public bool isInGame = false;
@@ -30,7 +29,7 @@ public class GameManager : MonoBehaviour
     {
         isPause = !isPause;
         isInGame = !isInGame;
-        audioManager.Play(pauseSound);
+        audioManager.Play("Pause");
         Time.timeScale = isPause ? 0f : 1f;
         if (isPause)
             foreach (ButtonManager button in buttonsInPause)

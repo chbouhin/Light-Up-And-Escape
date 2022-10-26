@@ -7,14 +7,7 @@ public class Key : Held
     [SerializeField] private Animator animator;
     public Door door;
 
-    // protected override void Start()
-    // {
-    //     base.Start();
-    //     // transform.GetChild(0).GetComponent<SpriteRenderer>().color = Color.red;// TEMP
-    //     // door.transform.GetChild(0).GetComponent<SpriteRenderer>().color = Color.red;// TEMP
-    //     // door.transform.GetChild(1).GetComponent<SpriteRenderer>().color = Color.red;// TEMP
-    // }
-
+    // Cant have more than 8 keys in a level (for colors generation)
     public override void IsGrab()
     {
         base.IsGrab();

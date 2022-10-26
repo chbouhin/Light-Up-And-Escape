@@ -750,7 +750,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 277826813}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.45, z: 0}
+  m_LocalPosition: {x: -0.86, y: 2.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10467,6 +10467,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tilemap: {fileID: 1073706470}
   autoTile: {fileID: 11400000, guid: 146eb2cf759f89840bbcd68a8d94152b, type: 2}
+  square: {fileID: 235363855}
+  mouseLight: {fileID: 277826814}
   mapElementsObj: {fileID: 1632230149}
   box: {fileID: 5789200093759024974, guid: ab9278aa8a6f856468c48e893720a765, type: 3}
   doorOff: {fileID: 1409911522805033541, guid: 0f03bf4050231da469b91a3d83cbcc22, type: 3}
@@ -10857,7 +10859,6 @@ MonoBehaviour:
   - {fileID: 1094830918}
   - {fileID: 1018255901}
   - {fileID: 1373976077}
-  pauseSound: Click
   square: {fileID: 235363856}
   mouseLight: {fileID: 277826814}
   isInGame: 0
@@ -11511,7 +11512,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3371929191132119026, guid: 4510bebf89578ba4ea41ff7c5f2abb45, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 3371929191132119026, guid: 4510bebf89578ba4ea41ff7c5f2abb45, type: 3}
       propertyPath: m_LocalPosition.z

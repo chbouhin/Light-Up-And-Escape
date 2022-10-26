@@ -8,6 +8,8 @@ public class MapManager : MonoBehaviour
 {
     [SerializeField] private Tilemap tilemap;
     [SerializeField] private TileBase autoTile;
+    [SerializeField] private Transform square;
+    [SerializeField] private MouseLight mouseLight;
     [SerializeField] private Transform mapElementsObj;
     [SerializeField] private GameObject box;
     [SerializeField] private GameObject doorOff;
@@ -21,6 +23,16 @@ public class MapManager : MonoBehaviour
     [SerializeField] private GameObject victoryChest;
     private string filePath;
     private int levelIndex;
+    private List<Color> colors = new List<Color>() {
+        Color.blue,
+        Color.cyan,
+        Color.gray,
+        Color.green,
+        Color.magenta,
+        Color.red,
+        Color.white,
+        Color.yellow,
+    };
 
     private void Awake()
     {
@@ -46,6 +58,8 @@ public class MapManager : MonoBehaviour
         foreach (Vector3Int tilePos in tilemap.cellBounds.allPositionsWithin)
             if (tilemap.HasTile(tilePos))
                 tilemapDatas.tilesPos.Add(tilePos);
+        tilemapDatas.squarePos = square.position;
+        tilemapDatas.mouseLightPos = mouseLight.transform.position;
         foreach (Transform mapElementObj in mapElementsObj) {
             MapElements tempMapElements = new MapElements();
             tempMapElements.id = GetMapElementFromTag(mapElementObj.gameObject.tag);
@@ -128,6 +142,8 @@ public class MapManager : MonoBehaviour
         int count = 0;
         foreach (Vector3Int tilePos in tilemapsDatas.tilesPos)
             tilemap.SetTile(tilePos, autoTile);
+        square.position = tilemapsDatas.squarePos;
+        mouseLight.SetPos(tilemapsDatas.mouseLightPos);
         foreach (MapElements mapElements in tilemapsDatas.mapElements)
             CreateMapElement(mapElements, objs);
         foreach (MapElements mapElements in tilemapsDatas.mapElements) {
@@ -185,7 +201,15 @@ public class MapManager : MonoBehaviour
     {
         switch (mapElements.id) {
             case MapElement.key:
-                objs[count].GetComponent<Key>().door = objs[mapElements.idLink[0]].GetComponent<Door>();
+                Key tempKey = objs[count].GetComponent<Key>();
+                Door tempDoor = objs[mapElements.idLink[0]].GetComponent<Door>();
+                tempKey.door = tempDoor;
+                int colorIndex = Random.Range(0, colors.Count);
+                Color tempColor = colors[colorIndex];
+                colors.RemoveAt(colorIndex);
+                tempKey.transform.GetChild(0).GetComponent<SpriteRenderer>().color = tempColor;
+                tempDoor.transform.GetChild(0).GetComponent<SpriteRenderer>().color = tempColor;
+                tempDoor.transform.GetChild(1).GetComponent<SpriteRenderer>().color = tempColor;
                 break;
             case MapElement.pressurePlate:
                 objs[count].GetComponent<PressurePlate>().activablesObj = new List<ActivableObj>();
@@ -211,6 +235,8 @@ public class MapManager : MonoBehaviour
 public class TilemapDatas
 {
     public List<Vector3Int> tilesPos;
+    public Vector2 squarePos;
+    public Vector2 mouseLightPos;
     public List<MapElements> mapElements;
 }
 

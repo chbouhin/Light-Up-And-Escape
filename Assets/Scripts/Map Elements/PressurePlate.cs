@@ -6,7 +6,17 @@ public class PressurePlate : MonoBehaviour
 {
     public List<ActivableObj> activablesObj;
     [SerializeField] private Animator animator;
+    [SerializeField] private GameObject linePowerObj;
     private int nbOfCol = 0;
+
+    private void Start()
+    {
+        foreach (ActivableObj activableObj in activablesObj) {
+            LinePower linePower = Instantiate(linePowerObj).GetComponent<LinePower>();
+            linePower.startPos = transform.position;
+            linePower.endPos = activableObj.transform.position;
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D col)
     {

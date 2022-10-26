@@ -29,7 +29,7 @@ public class Square : Player
             if (inputManager.GetKeyDown("SquareInteract"))
                 CheckIfHeld();
         }
-        CheckIfFall();//only stop the rotation if grounded
+        CheckIfFall();
     }
 
     private void FixedUpdate()
@@ -59,12 +59,15 @@ public class Square : Player
 
     private void CheckIfJump()
     {
-        if (inputManager.GetKeyDown("SquareJump") && isGrounded)
+        if (inputManager.GetKeyDown("SquareJump") && isGrounded) {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-        else if (inputManager.GetKeyUp("SquareJump") && rb.velocity.y > 0f)
+            audioManager.Play("Jump");
+        } else if (inputManager.GetKeyUp("SquareJump") && rb.velocity.y > 0f) {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+        }
     }
 
+    // Only stop the rotation if grounded
     private void CheckIfFall()
     {
         if (!isGrounded) {

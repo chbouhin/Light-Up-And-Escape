@@ -51,6 +51,30 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: Pause
+    clip: {fileID: 8300000, guid: af68a9d573fad4c75a776d2c52222514, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Loose
+    clip: {fileID: 8300000, guid: cb8db5516a6814a66af057954771b42c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Victory
+    clip: {fileID: 8300000, guid: 25fc03b1293dd4d8788619fde2a0a937, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Jump
+    clip: {fileID: 8300000, guid: ddc3698514d64401b84ed16285136a77, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   menuMusics:
   - clip: {fileID: 8300000, guid: 2f33e8d28206ec842b3c7d7a6b801606, type: 3}
     volume: 1
@@ -80,6 +104,3 @@ MonoBehaviour:
   - clip: {fileID: 8300000, guid: bb0b3c50b77dfcb4db785fff8f0499cb, type: 3}
     volume: 1
     pitch: 1
-  allVolumes: 0
-  soundVolume: 0
-  musicVolume: 0

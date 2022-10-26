@@ -10,7 +10,8 @@ public class VictoryChest : InteractableObj
     {
         animator.SetBool("open", true);
         FindObjectOfType<GameManager>().isInGame = false;
-        FindObjectOfType<Square>().StopMoving();
+        audioManager.Play("Victory");
         GameObject.Find("Victory").GetComponent<Popup>().OpenClose(true);
+        FindObjectOfType<Square>().StopMoving();
     }
 }

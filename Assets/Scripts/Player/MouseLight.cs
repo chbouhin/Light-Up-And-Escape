@@ -11,6 +11,7 @@ public class MouseLight : Player
     private void Start()
     {
         position = transform.position;
+        destination = position;
     }
 
     private void Update()
@@ -33,5 +34,12 @@ public class MouseLight : Player
     private void FixedUpdate()
     {
         rb.MovePosition(position);
+    }
+
+    public void SetPos(Vector2 pos)
+    {
+        destination = pos;
+        position = pos;
+        transform.position = pos;
     }
 }

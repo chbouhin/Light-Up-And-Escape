@@ -9,10 +9,12 @@ public abstract class InteractableObj : MonoBehaviour
     private InputManager inputManager;
     private bool squareIsTouching = false;
     private bool mouseLightIsTouching = false;
+    protected AudioManager audioManager;
 
     private void Start()
     {
         inputManager = FindObjectOfType<InputManager>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     private void Update()
