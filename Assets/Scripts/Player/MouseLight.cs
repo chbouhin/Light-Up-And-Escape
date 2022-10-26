@@ -7,7 +7,7 @@ public class MouseLight : Player
     private Vector2 position;
     private Vector2 destination;
     private float moveSpeed = 0.04f; // 0 to 1
-    private float maxDistanceMove = 8f;
+    private float maxDistanceMove = 7f;
 
     private void Start()
     {

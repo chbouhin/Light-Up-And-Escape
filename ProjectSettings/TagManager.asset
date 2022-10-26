@@ -17,6 +17,7 @@ TagManager:
   - PressurePlate
   - SwitchButton
   - VictoryChest
+  - BarWall
   layers:
   - Default
   - TransparentFX
@@ -27,7 +28,7 @@ TagManager:
   - Box
   - Square
   - MouseLight
-  - 
+  - BarWall
   - 
   - 
   - 

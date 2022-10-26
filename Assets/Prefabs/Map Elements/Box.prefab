@@ -101,7 +101,7 @@ MonoBehaviour:
   triggerBoxCollider: {fileID: 8456171472611996772}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 72
+    m_Bits: 584
 --- !u!61 &8456171472611996772
 BoxCollider2D:
   m_ObjectHideFlags: 0

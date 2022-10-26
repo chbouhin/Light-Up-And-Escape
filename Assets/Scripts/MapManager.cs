@@ -20,6 +20,7 @@ public class MapManager : MonoBehaviour
     [SerializeField] private GameObject torch;
     [SerializeField] private GameObject pressurePlate;
     [SerializeField] private GameObject switchButton;
+    [SerializeField] private GameObject barWall;
     [SerializeField] private GameObject victoryChest;
     private string filePath;
     private int levelIndex;
@@ -94,6 +95,8 @@ public class MapManager : MonoBehaviour
                 return MapElement.pressurePlate;
             case "SwitchButton":
                 return MapElement.switchButton;
+            case "BarWall":
+                return MapElement.barWall;
             case "VictoryChest":
                 return MapElement.victoryChest;
             default:
@@ -183,6 +186,9 @@ public class MapManager : MonoBehaviour
             case MapElement.switchButton:
                 InstantiateObj(mapElements, objs, switchButton);
                 break;
+            case MapElement.barWall:
+                InstantiateObj(mapElements, objs, barWall);
+                break;
             case MapElement.victoryChest:
                 InstantiateObj(mapElements, objs, victoryChest);
                 break;
@@ -259,7 +265,8 @@ public enum MapElement {
     torch,          // 7
     pressurePlate,  // 8
     switchButton,   // 9
-    victoryChest,   // 10
+    barWall,        // 10
+    victoryChest,   // 11
 };
 
 /* Tiles use for autotiling :
@@ -269,9 +276,7 @@ public enum MapElement {
 3
 4
 5
-6
 7
-8
 9
 17
 145
@@ -307,4 +312,5 @@ public enum MapElement {
 146
 148
 56
+65
 */
