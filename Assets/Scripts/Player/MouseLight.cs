@@ -7,6 +7,7 @@ public class MouseLight : Player
     private Vector2 position;
     private Vector2 destination;
     private float moveSpeed = 0.04f; // 0 to 1
+    private float maxDistanceMove = 8f;
 
     private void Start()
     {
@@ -28,7 +29,10 @@ public class MouseLight : Player
             destination = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             destination = new Vector3(Mathf.Clamp(destination.x, minScreenBounds.x, maxScreenBounds.x), Mathf.Clamp(destination.y, minScreenBounds.y, maxScreenBounds.y), 0f);
         }
-        position = Vector2.Lerp(transform.position, destination, moveSpeed);
+        if (Vector2.Distance(transform.position, destination) > maxDistanceMove)
+            position = Vector2.Lerp(transform.position, (Vector2)transform.position + ((Vector2)Vector3.Normalize(destination - (Vector2)transform.position) * maxDistanceMove), moveSpeed);
+        else
+            position = Vector2.Lerp(transform.position, destination, moveSpeed);
     }
 
     private void FixedUpdate()

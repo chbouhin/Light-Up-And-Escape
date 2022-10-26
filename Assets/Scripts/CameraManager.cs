@@ -8,7 +8,7 @@ public class CameraManager : MonoBehaviour
     [SerializeField] private Transform square;
     [SerializeField] private Transform mouseLight;
     private float moveSpeed = 0.1f; // 0 to 1
-    private float minSizeView = 2.5f; // number of meters player can see at minimum
+    private float minSizeView = 1f; // number of meters player can see at minimum
     private bool cameraFollowSquare = false;
     private Vector3 position;
 

@@ -25,6 +25,7 @@
     bouton switch
     porte
     clefs
+    bruitage de jeu (saut, mort, fin, ...)
 
         Todo :
     ennemi type 1
@@ -32,7 +33,6 @@
     grille
     tuto
     6 lvl
-    bruitage de jeu (saut, mort, fin, ...)
     étoile en jeu (système de point)
     animation des étoiles dans le lvl select
     revoir audioManager pour les sons

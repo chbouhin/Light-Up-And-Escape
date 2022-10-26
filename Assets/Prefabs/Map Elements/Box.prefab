@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1518750911181478944}
   - component: {fileID: 1896497148733699563}
   - component: {fileID: 8456171472611996772}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Box
   m_TagString: Box
   m_Icon: {fileID: 0}
@@ -95,15 +95,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9667e6e7f8f87304ebc9a31e7cf9bf7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  squareCanInteract: 1
-  mouseLightCanInteract: 1
   sizeWhenGrab: 0.4
   rigidBody: {fileID: 3577951827066795359}
   normalBoxCollider: {fileID: 1518750911181478944}
   triggerBoxCollider: {fileID: 8456171472611996772}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 72
 --- !u!61 &8456171472611996772
 BoxCollider2D:
   m_ObjectHideFlags: 0
