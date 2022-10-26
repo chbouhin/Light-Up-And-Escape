@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class Square : Player
 {
@@ -11,11 +12,11 @@ public class Square : Player
     [HideInInspector] public float jumpForce = 7f;
     [HideInInspector] public bool isGrounded = true;
     [HideInInspector] public Held held;
-    private bool canThrow = true;
     private float horizontal;
     private float lastDirection = 1f; // -1 for left | 1 for right
     private float rotationZ = 0f;
     private float rotationSpeed = 275f;
+    private Dictionary<int, Held> heldObjs = new Dictionary<int, Held>();
 
     private void Update()
     {
@@ -77,11 +78,13 @@ public class Square : Player
 
     private void CheckIfHeld()
     {
-        if (held != null && canThrow) {
+        if (held != null) {
             held.IsThrow();
             held = null;
+        } else if (heldObjs.Count > 0) {
+            held = heldObjs.Values.First();
+            held.IsGrab();
         }
-        canThrow = true;
     }
 
     public void StopMoving()
@@ -90,12 +93,13 @@ public class Square : Player
         animator.SetBool("isMoving", false);
     }
 
-    public bool HoldObj(Held held)
+    public void HeldObjOnTriggerEnter(int instanceId, Held held)
     {
-        if (this.held != null )
-            return false;
-        this.held = held;
-        canThrow = false;
-        return true;
+        heldObjs.Add(instanceId, held);
+    }
+
+    public void HeldObjOnTriggerExit(int instanceId)
+    {
+        heldObjs.Remove(instanceId);
     }
 }

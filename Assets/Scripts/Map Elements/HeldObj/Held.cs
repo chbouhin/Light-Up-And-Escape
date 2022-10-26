@@ -2,24 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Held : InteractableObj
+public abstract class Held : MonoBehaviour
 {
-    private Transform parent;
+    [SerializeField] private float sizeWhenGrab = 0.4f; // 0 to 1
     protected Square square;
+    private Transform parent;
     private bool grab = false;
     private float animSpeed = 0.1f; // 0 to 1
-    [SerializeField] private float sizeWhenGrab = 0.4f; // 0 to 1
+    int instanceId;
 
-    protected override void Start()
+    private void Start()
     {
-        base.Start();
         parent = transform.parent;
         square = FindObjectOfType<Square>();
+        instanceId = transform.GetInstanceID();
     }
 
-    protected override void Update()
+    private void Update()
     {
-        base.Update();
         if (grab) {
             transform.localPosition = Vector2.Lerp(transform.localPosition, Vector2.zero, animSpeed);
             transform.localScale = Vector2.Lerp(transform.localScale, new Vector2(sizeWhenGrab, sizeWhenGrab), animSpeed);
@@ -28,7 +28,19 @@ public abstract class Held : InteractableObj
         }
     }
 
-    protected virtual void IsGrab()
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Square")
+            square.HeldObjOnTriggerEnter(instanceId, this);
+    }
+
+    private void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Square")
+            square.HeldObjOnTriggerExit(instanceId);
+    }
+
+    public virtual void IsGrab()
     {
         grab = true;
         transform.SetParent(square.transform);
@@ -38,11 +50,5 @@ public abstract class Held : InteractableObj
     {
         grab = false;
         transform.SetParent(parent);
-    }
-
-    protected override void ObjAction()
-    {
-        if (square.HoldObj(this))
-            IsGrab();
     }
 }

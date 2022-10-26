@@ -11,7 +11,7 @@ public class BoxManager : Held
     private Vector2 savePosition;
     private float statMultiplicator = 1.75f; // bigger is it, lower the player will move and jump
 
-    protected override void IsGrab()
+    public override void IsGrab()
     {
         rigidBody.isKinematic = true;
         rigidBody.velocity = Vector2.zero;
@@ -26,8 +26,8 @@ public class BoxManager : Held
 
     public override void IsThrow()
     {
-        if (Physics2D.OverlapCircle(transform.TransformPoint(Vector2.Lerp(Vector2.zero, savePosition / transform.localScale, 0.75f)), 0.45f, groundLayer))
         // If between new pos and player == layer => between player and new pos, else new pos
+        if (Physics2D.OverlapCircle(transform.TransformPoint(Vector2.Lerp(Vector2.zero, savePosition / transform.localScale, 0.8f)), 0.45f, groundLayer))
             transform.localPosition = Vector2.Lerp(transform.localPosition, savePosition, 0.45f);
         else
             transform.localPosition = savePosition;

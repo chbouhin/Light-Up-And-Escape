@@ -10,16 +10,16 @@ public abstract class InteractableObj : MonoBehaviour
     private bool squareIsTouching = false;
     private bool mouseLightIsTouching = false;
 
-    protected virtual void Start()
+    private void Start()
     {
         inputManager = FindObjectOfType<InputManager>();
     }
 
-    protected virtual void Update()
+    private void Update()
     {
         if (squareCanInteract && squareIsTouching && inputManager.GetKeyDown("SquareInteract"))
             ObjAction();
-        if (mouseLightCanInteract && mouseLightIsTouching && inputManager.GetKeyDown("MouseLightInteract"))
+        else if (mouseLightCanInteract && mouseLightIsTouching && inputManager.GetKeyDown("MouseLightInteract"))
             ObjAction();
     }
 

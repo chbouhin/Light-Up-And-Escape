@@ -7,15 +7,15 @@ public class Key : Held
     [SerializeField] private Animator animator;
     public Door door;
 
-    protected override void Start()
-    {
-        base.Start();
-        // transform.GetChild(0).GetComponent<SpriteRenderer>().color = Color.red;// TEMP
-        // door.transform.GetChild(0).GetComponent<SpriteRenderer>().color = Color.red;// TEMP
-        // door.transform.GetChild(1).GetComponent<SpriteRenderer>().color = Color.red;// TEMP
-    }
+    // protected override void Start()
+    // {
+    //     base.Start();
+    //     // transform.GetChild(0).GetComponent<SpriteRenderer>().color = Color.red;// TEMP
+    //     // door.transform.GetChild(0).GetComponent<SpriteRenderer>().color = Color.red;// TEMP
+    //     // door.transform.GetChild(1).GetComponent<SpriteRenderer>().color = Color.red;// TEMP
+    // }
 
-    protected override void IsGrab()
+    public override void IsGrab()
     {
         base.IsGrab();
         animator.enabled = false;
