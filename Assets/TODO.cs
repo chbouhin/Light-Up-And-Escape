@@ -5,52 +5,53 @@
     Options (sons)
     Pause
     Level Select
-    character 1 (square : mouvement, saut, animation, peu grimper des bordures)
-    character 2 (mouse light : mouvement, animation, éclairage)
-    gestion de lumière
-    gestion des sons et musiques
-    gestion de sauvegarde des Options
-    map en json
-    animations
-    gestions de scènes
-    particules
-    plaque de pression
-    caisses (modification de pull/push)
-    gestion de mort
+    Character 1 (square : mouvement, saut, animation, peu grimper des bordures)
+    Character 2 (mouse light : mouvement, animation, éclairage)
+    Gestion de lumière
+    Gestion des sons et musiques
+    Gestion de sauvegarde des Options
+    Map en json
+    Animations
+    Gestions de scènes
+    Particules
+    Plaque de pression
+    Caisses (modification de pull/push)
+    Gestion de mort
     Vide
     Camera qui se bloque si hors map
-    defaite
-    victoire
-    mapage des touches
-    bouton switch
-    porte
-    clefs
-    bruitage de jeu (saut, mort, fin, ...)
-    grille
+    Defaite
+    Victoire
+    Mapage des touches
+    Bouton switch
+    Porte
+    Clefs
+    Bruitage de jeu (saut, mort, fin, ...)
+    Grille
+    Etoile en jeu (système de point)
 
         Todo :
-    ennemi type 1
-    ennemi type 2
-    tuto
+    Ennemi type 1
+    Ennemi type 2
+    Tuto
     6 lvl
-    étoile en jeu (système de point)
-    animation des étoiles dans le lvl select
-    revoir audioManager pour les sons
+    Animation des étoiles dans le lvl select
+    Revoir audioManager pour les sons
 
 
 
         Bonus Done :
-    autotile
+    Autotile
     2 systèmes de caméra
-    lumière qui s'active ou non en fonction du courant (interupteur, ...)
-    move et saute moins haut avec une caisse
-    bordure géré et physique amélioré
+    Lumière qui s'active ou non en fonction du courant (interupteur, ...)
+    Move et saute moins haut avec une caisse
+    Bordure géré et physique amélioré
 
         Bonus Todo :
     Création de carte pour les joueurs
-    block rebondissant
-    checkpoint
-    afficher la touche sur obj si interactable
+    Block rebondissant
+    Checkpoint
+    Afficher la touche sur obj si interactable
+    Skin
 
 
 

@@ -7,7 +7,7 @@ public class CameraManager : MonoBehaviour
     [SerializeField] private InputManager inputManager;
     [SerializeField] private Transform square;
     [SerializeField] private Transform mouseLight;
-    private float moveSpeed = 0.1f; // 0 to 1
+    private float moveSpeed = 10f;
     private float minSizeView = 1f; // number of meters player can see at minimum
     private bool cameraFollowSquare = false;
     private Vector3 position;
@@ -30,7 +30,7 @@ public class CameraManager : MonoBehaviour
 
     private void CameraFollowSquare()
     {
-        position = Vector3.Lerp(transform.position, new Vector3(square.position.x, square.position.y, transform.position.z), moveSpeed);
+        position = Vector3.Lerp(transform.position, new Vector3(square.position.x, square.position.y, transform.position.z), moveSpeed * Time.deltaTime);
     }
 
     private void CameraFollowBothChar()
@@ -43,7 +43,7 @@ public class CameraManager : MonoBehaviour
         if (square.position.x < minNewPos.x + minSizeView || square.position.x > maxNewPos.x - minSizeView || square.position.y < minNewPos.y + minSizeView || square.position.y > maxNewPos.y - minSizeView)
             CameraFollowSquare();
         else
-            position = Vector3.Lerp(transform.position, new Vector3(newPos.x, newPos.y, transform.position.z), moveSpeed);
+            position = Vector3.Lerp(transform.position, new Vector3(newPos.x, newPos.y, transform.position.z), moveSpeed * Time.deltaTime);
     }
 
     private void FixedUpdate()

@@ -8,7 +8,7 @@ public abstract class Held : MonoBehaviour
     protected Square square;
     private Transform parent;
     private bool grab = false;
-    private float animSpeed = 0.1f; // 0 to 1
+    private float animSpeed = 10f;
     int instanceId;
 
     private void Start()
@@ -21,10 +21,10 @@ public abstract class Held : MonoBehaviour
     private void Update()
     {
         if (grab) {
-            transform.localPosition = Vector2.Lerp(transform.localPosition, Vector2.zero, animSpeed);
-            transform.localScale = Vector2.Lerp(transform.localScale, new Vector2(sizeWhenGrab, sizeWhenGrab), animSpeed);
+            transform.localPosition = Vector2.Lerp(transform.localPosition, Vector2.zero, animSpeed * Time.deltaTime);
+            transform.localScale = Vector2.Lerp(transform.localScale, new Vector2(sizeWhenGrab, sizeWhenGrab), animSpeed * Time.deltaTime);
         } else {
-            transform.localScale = Vector2.Lerp(transform.localScale, Vector2.one, animSpeed);
+            transform.localScale = Vector2.Lerp(transform.localScale, Vector2.one, animSpeed * Time.deltaTime);
         }
     }
 
