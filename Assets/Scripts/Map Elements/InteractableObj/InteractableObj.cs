@@ -11,7 +11,7 @@ public abstract class InteractableObj : MonoBehaviour
     private bool mouseLightIsTouching = false;
     protected AudioManager audioManager;
 
-    private void Awake()
+    private void Start()
     {
         inputManager = FindObjectOfType<InputManager>();
         audioManager = FindObjectOfType<AudioManager>();

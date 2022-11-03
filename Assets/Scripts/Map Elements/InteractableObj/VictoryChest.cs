@@ -9,9 +9,6 @@ public class VictoryChest : InteractableObj
     protected override void ObjAction()
     {
         animator.SetBool("open", true);
-        FindObjectOfType<GameManager>().isInGame = false;
-        audioManager.Play("Victory");
-        GameObject.Find("Victory").GetComponent<Popup>().OpenClose(true);
-        FindObjectOfType<Square>().StopMoving();
+        FindObjectOfType<GameManager>().Victory();
     }
 }

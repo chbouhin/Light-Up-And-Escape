@@ -6,9 +6,9 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private InputManager inputManager;
     [SerializeField] private Popup pause;
+    [SerializeField] private Popup victory;
     [SerializeField] private List<ButtonManager> buttonsInPause;
-    [SerializeField] private Player square;
-    [SerializeField] private Player mouseLight;
+    [SerializeField] private Square square;
     [HideInInspector] public bool isInGame = false;
     private AudioManager audioManager;
     private bool isPause = false;
@@ -41,5 +41,13 @@ public class GameManager : MonoBehaviour
     {
         isPause = true;
         PauseUnpause();
+    }
+
+    public void Victory()
+    {
+        isInGame = false;
+        audioManager.Play("Victory");
+        victory.OpenClose(true);
+        square.StopMoving();
     }
 }

@@ -11,17 +11,7 @@ public class MapManager : MonoBehaviour
     [SerializeField] private Transform square;
     [SerializeField] private MouseLight mouseLight;
     [SerializeField] private Transform mapElementsObj;
-    [SerializeField] private GameObject box;
-    [SerializeField] private GameObject doorOff;
-    [SerializeField] private GameObject doorOn;
-    [SerializeField] private GameObject key;
-    [SerializeField] private GameObject lampOff;
-    [SerializeField] private GameObject lampOn;
-    [SerializeField] private GameObject torch;
-    [SerializeField] private GameObject pressurePlate;
-    [SerializeField] private GameObject switchButton;
-    [SerializeField] private GameObject barWall;
-    [SerializeField] private GameObject victoryChest;
+    [SerializeField] private List<MapObj> mapObjs;
     private string filePath;
     private int levelIndex;
     private List<Color> colors = new List<Color>() {
@@ -31,7 +21,6 @@ public class MapManager : MonoBehaviour
         Color.green,
         Color.magenta,
         Color.red,
-        Color.white,
         Color.yellow,
     };
 
@@ -74,53 +63,25 @@ public class MapManager : MonoBehaviour
         Debug.Log("Save in : " + filePath);
     }
 
-    private MapElement GetMapElementFromTag(string tag)
+    private int GetMapElementFromTag(string tag)
     {
-        switch (tag) {
-            case "Box":
-                return MapElement.box;
-            case "DoorOff":
-                return MapElement.doorOff;
-            case "DoorOn":
-                return MapElement.doorOn;
-            case "Key":
-                return MapElement.key;
-            case "LampOff":
-                return MapElement.lampOff;
-            case "LampOn":
-                return MapElement.lampOn;
-            case "Torch":
-                return MapElement.torch;
-            case "PressurePlate":
-                return MapElement.pressurePlate;
-            case "SwitchButton":
-                return MapElement.switchButton;
-            case "BarWall":
-                return MapElement.barWall;
-            case "VictoryChest":
-                return MapElement.victoryChest;
-            default:
-                return MapElement.error;
-        }
+        for (int i = 0; i < mapObjs.Count; i++)
+            if (mapObjs[i].tag == tag)
+                return i;
+        return 0;
     }
 
-    // Link interactableObj (Key, PressurePlate, SwitchButton) with ActivableObj
-    private List<int> GetLinkOfMapElements(Transform mapElementsObj, MapElement objId, Transform mapElementObj)
+    private List<int> GetLinkOfMapElements(Transform mapElementsObj, int objId, Transform mapElementObj)
     {
         List<int> listMapElements = new List<int>();
-        if (objId == MapElement.key) {
+        if (mapObjs[objId].tag == "PressurePlate" || mapObjs[objId].tag == "SwitchButton") {
+            foreach (ActivableObj activableObj in mapElementObj.GetComponent<Powering>().activablesObj) {
+                int instanceId = activableObj.transform.GetInstanceID();
+                SearchForLinkTwoMapElement(mapElementsObj, listMapElements, instanceId);
+            }
+        } else if (mapObjs[objId].tag == "Key") {
             int instanceId = mapElementObj.GetComponent<Key>().door.transform.GetInstanceID();
             SearchForLinkTwoMapElement(mapElementsObj, listMapElements, instanceId);
-        } else if (objId == MapElement.pressurePlate) {
-            foreach (ActivableObj activableObj in mapElementObj.GetComponent<PressurePlate>().activablesObj) {
-                int instanceId = activableObj.transform.GetInstanceID();
-                SearchForLinkTwoMapElement(mapElementsObj, listMapElements, instanceId);
-            }
-        } else if (objId == MapElement.switchButton) {
-            foreach (ActivableObj activableObj in mapElementObj.GetComponent<SwitchButton>().activablesObj) {
-                int instanceId = activableObj.transform.GetInstanceID();
-                SearchForLinkTwoMapElement(mapElementsObj, listMapElements, instanceId);
-            }
         }
         return listMapElements;
     }
@@ -148,51 +109,12 @@ public class MapManager : MonoBehaviour
         square.position = tilemapsDatas.squarePos;
         mouseLight.SetPos(tilemapsDatas.mouseLightPos);
         foreach (MapElements mapElements in tilemapsDatas.mapElements)
-            CreateMapElement(mapElements, objs);
+            InstantiateObj(mapElements, objs, mapObjs[mapElements.id].go);
         foreach (MapElements mapElements in tilemapsDatas.mapElements) {
             SetLinkOfMapElements(objs, mapElements, count);
             count++;
         }
         Debug.Log("Load from " + filePath);
-    }
-
-    private void CreateMapElement(MapElements mapElements, List<Transform> objs)
-    {
-        switch (mapElements.id) {
-            case MapElement.box:
-                InstantiateObj(mapElements, objs, box);
-                break;
-            case MapElement.doorOff:
-                InstantiateObj(mapElements, objs, doorOff);
-                break;
-            case MapElement.doorOn:
-                InstantiateObj(mapElements, objs, doorOn);
-                break;
-            case MapElement.key:
-                InstantiateObj(mapElements, objs, key);
-                break;
-            case MapElement.lampOff:
-                InstantiateObj(mapElements, objs, lampOff);
-                break;
-            case MapElement.lampOn:
-                InstantiateObj(mapElements, objs, lampOn);
-                break;
-            case MapElement.torch:
-                InstantiateObj(mapElements, objs, torch);
-                break;
-            case MapElement.pressurePlate:
-                InstantiateObj(mapElements, objs, pressurePlate);
-                break;
-            case MapElement.switchButton:
-                InstantiateObj(mapElements, objs, switchButton);
-                break;
-            case MapElement.barWall:
-                InstantiateObj(mapElements, objs, barWall);
-                break;
-            case MapElement.victoryChest:
-                InstantiateObj(mapElements, objs, victoryChest);
-                break;
-        }
     }
 
     private void InstantiateObj(MapElements mapElements, List<Transform> objs, GameObject obj)
@@ -205,28 +127,20 @@ public class MapManager : MonoBehaviour
 
     private void SetLinkOfMapElements(List<Transform> objs, MapElements mapElements, int count)
     {
-        switch (mapElements.id) {
-            case MapElement.key:
-                Key tempKey = objs[count].GetComponent<Key>();
-                Door tempDoor = objs[mapElements.idLink[0]].GetComponent<Door>();
-                tempKey.door = tempDoor;
-                int colorIndex = Random.Range(0, colors.Count);
-                Color tempColor = colors[colorIndex];
-                colors.RemoveAt(colorIndex);
-                tempKey.transform.GetChild(0).GetComponent<SpriteRenderer>().color = tempColor;
-                tempDoor.transform.GetChild(0).GetComponent<SpriteRenderer>().color = tempColor;
-                tempDoor.transform.GetChild(1).GetComponent<SpriteRenderer>().color = tempColor;
-                break;
-            case MapElement.pressurePlate:
-                objs[count].GetComponent<PressurePlate>().activablesObj = new List<ActivableObj>();
-                foreach (int idLink in mapElements.idLink)
-                    objs[count].GetComponent<PressurePlate>().activablesObj.Add(objs[idLink].GetComponent<ActivableObj>());
-                break;
-            case MapElement.switchButton:
-                objs[count].GetComponent<SwitchButton>().activablesObj = new List<ActivableObj>();
-                foreach (int idLink in mapElements.idLink)
-                    objs[count].GetComponent<SwitchButton>().activablesObj.Add(objs[idLink].GetComponent<ActivableObj>());
-                break;
+        if (mapObjs[mapElements.id].tag == "PressurePlate" || mapObjs[mapElements.id].tag == "SwitchButton") {
+            objs[count].GetComponent<Powering>().activablesObj = new List<ActivableObj>();
+            foreach (int idLink in mapElements.idLink)
+                objs[count].GetComponent<Powering>().activablesObj.Add(objs[idLink].GetComponent<ActivableObj>());
+        } else if (mapObjs[mapElements.id].tag == "Key") {
+            Key tempKey = objs[count].GetComponent<Key>();
+            Door tempDoor = objs[mapElements.idLink[0]].GetComponent<Door>();
+            tempKey.door = tempDoor;
+            int colorIndex = Random.Range(0, colors.Count);
+            Color tempColor = colors[colorIndex];
+            colors.RemoveAt(colorIndex);
+            tempKey.transform.GetChild(0).GetComponent<SpriteRenderer>().color = tempColor;
+            tempDoor.transform.GetChild(0).GetComponent<SpriteRenderer>().color = tempColor;
+            tempDoor.transform.GetChild(1).GetComponent<SpriteRenderer>().color = tempColor;
         }
     }
 
@@ -249,25 +163,17 @@ public class TilemapDatas
 [System.Serializable]
 public class MapElements
 {
-    public MapElement id;
+    public int id;
     public Vector3 pos;
     public List<int> idLink;
 }
 
-public enum MapElement {
-    error,          // 0
-    box,            // 1
-    doorOff,        // 2
-    doorOn,         // 3
-    key,            // 4
-    lampOff,        // 5
-    lampOn,         // 6
-    torch,          // 7
-    pressurePlate,  // 8
-    switchButton,   // 9
-    barWall,        // 10
-    victoryChest,   // 11
-};
+[System.Serializable]
+public class MapObj
+{
+    public string tag;
+    public GameObject go;
+}
 
 /* Tiles use for autotiling :
 0

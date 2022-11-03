@@ -275,7 +275,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1955572583100041203, guid: 69a803fb852e40749a2a28aeb83f3886, type: 3}
       propertyPath: m_Name
-      value: Stars (1)
+      value: Star (1)
       objectReference: {fileID: 0}
     - target: {fileID: 6552536451414850297, guid: 69a803fb852e40749a2a28aeb83f3886, type: 3}
       propertyPath: m_RootOrder
@@ -10282,6 +10282,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6244262633079183361, guid: 34b98314a6b944c4f9ef2798424d12b7, type: 3}
+      propertyPath: activablesObj.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6244262633079183361, guid: 34b98314a6b944c4f9ef2798424d12b7, type: 3}
+      propertyPath: activablesObj.Array.data[0]
+      value: 
+      objectReference: {fileID: 1482386439}
     - target: {fileID: 8834321601338949867, guid: 34b98314a6b944c4f9ef2798424d12b7, type: 3}
       propertyPath: m_Name
       value: SwitchButton
@@ -15509,7 +15517,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1955572583100041203, guid: 69a803fb852e40749a2a28aeb83f3886, type: 3}
       propertyPath: m_Name
-      value: Stars (2)
+      value: Star (2)
       objectReference: {fileID: 0}
     - target: {fileID: 6552536451414850297, guid: 69a803fb852e40749a2a28aeb83f3886, type: 3}
       propertyPath: m_RootOrder
@@ -15760,17 +15768,31 @@ MonoBehaviour:
   square: {fileID: 235363855}
   mouseLight: {fileID: 277826814}
   mapElementsObj: {fileID: 1632230149}
-  box: {fileID: 5789200093759024974, guid: ab9278aa8a6f856468c48e893720a765, type: 3}
-  doorOff: {fileID: 1409911522805033541, guid: 0f03bf4050231da469b91a3d83cbcc22, type: 3}
-  doorOn: {fileID: 7232979976358406864, guid: 7d36a7a322c6aab4b96e1940d4b6a333, type: 3}
-  key: {fileID: 6929204876554847193, guid: 8259f9887e8403042aae269d3ad1f208, type: 3}
-  lampOff: {fileID: 3226521009676847256, guid: c13263f1f05170f4e849875cee5c46d0, type: 3}
-  lampOn: {fileID: 1216030651170343933, guid: e6a7e797130a02644baeb00c149d8a3b, type: 3}
-  torch: {fileID: 8183758440019976681, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
-  pressurePlate: {fileID: 8595589232852749146, guid: 4510bebf89578ba4ea41ff7c5f2abb45, type: 3}
-  switchButton: {fileID: 8834321601338949867, guid: 34b98314a6b944c4f9ef2798424d12b7, type: 3}
-  barWall: {fileID: 6020470819784853249, guid: c23e5f1ce14399b4c869847b19563de1, type: 3}
-  victoryChest: {fileID: 6930122694965717508, guid: cea950ff3b9b0804f967eaec919f19f7, type: 3}
+  mapObjs:
+  - tag: Box
+    go: {fileID: 5789200093759024974, guid: ab9278aa8a6f856468c48e893720a765, type: 3}
+  - tag: DoorOff
+    go: {fileID: 1409911522805033541, guid: 0f03bf4050231da469b91a3d83cbcc22, type: 3}
+  - tag: DoorOn
+    go: {fileID: 7232979976358406864, guid: 7d36a7a322c6aab4b96e1940d4b6a333, type: 3}
+  - tag: Key
+    go: {fileID: 6929204876554847193, guid: 8259f9887e8403042aae269d3ad1f208, type: 3}
+  - tag: LampOff
+    go: {fileID: 3226521009676847256, guid: c13263f1f05170f4e849875cee5c46d0, type: 3}
+  - tag: LampOn
+    go: {fileID: 1216030651170343933, guid: e6a7e797130a02644baeb00c149d8a3b, type: 3}
+  - tag: Torch
+    go: {fileID: 8183758440019976681, guid: c759bb922e42eda4eb6f7e6e4e2fbe63, type: 3}
+  - tag: PressurePlate
+    go: {fileID: 8595589232852749146, guid: 4510bebf89578ba4ea41ff7c5f2abb45, type: 3}
+  - tag: SwitchButton
+    go: {fileID: 8834321601338949867, guid: 34b98314a6b944c4f9ef2798424d12b7, type: 3}
+  - tag: BarWall
+    go: {fileID: 6020470819784853249, guid: c23e5f1ce14399b4c869847b19563de1, type: 3}
+  - tag: Star
+    go: {fileID: 1955572583100041203, guid: 69a803fb852e40749a2a28aeb83f3886, type: 3}
+  - tag: VictoryChest
+    go: {fileID: 6930122694965717508, guid: cea950ff3b9b0804f967eaec919f19f7, type: 3}
 --- !u!4 &1670269121
 Transform:
   m_ObjectHideFlags: 0
@@ -16145,13 +16167,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputManager: {fileID: 1143857031}
   pause: {fileID: 1983994794}
+  victory: {fileID: 1552521391}
   buttonsInPause:
   - {fileID: 1808467186}
   - {fileID: 1094830918}
   - {fileID: 1018255901}
   - {fileID: 1373976077}
   square: {fileID: 235363856}
-  mouseLight: {fileID: 277826814}
   isInGame: 0
 --- !u!4 &1847620716
 Transform:
@@ -16889,6 +16911,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1632230149}
     m_Modifications:
+    - target: {fileID: -296711127281357100, guid: 4510bebf89578ba4ea41ff7c5f2abb45, type: 3}
+      propertyPath: activablesObj.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -296711127281357100, guid: 4510bebf89578ba4ea41ff7c5f2abb45, type: 3}
+      propertyPath: activablesObj.Array.data[0]
+      value: 
+      objectReference: {fileID: 2077980314}
+    - target: {fileID: -296711127281357100, guid: 4510bebf89578ba4ea41ff7c5f2abb45, type: 3}
+      propertyPath: activablesObj.Array.data[1]
+      value: 
+      objectReference: {fileID: 1668303389}
     - target: {fileID: 3371929191132119026, guid: 4510bebf89578ba4ea41ff7c5f2abb45, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -17025,7 +17059,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1955572583100041203, guid: 69a803fb852e40749a2a28aeb83f3886, type: 3}
       propertyPath: m_Name
-      value: Stars
+      value: Star
       objectReference: {fileID: 0}
     - target: {fileID: 6552536451414850297, guid: 69a803fb852e40749a2a28aeb83f3886, type: 3}
       propertyPath: m_RootOrder

@@ -18,6 +18,7 @@ TagManager:
   - SwitchButton
   - VictoryChest
   - BarWall
+  - Star
   layers:
   - Default
   - TransparentFX
