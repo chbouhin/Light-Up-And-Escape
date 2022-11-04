@@ -45,6 +45,7 @@
     Lumière qui s'active ou non en fonction du courant (interupteur, ...)
     Move et saute moins haut avec une caisse
     Bordure géré et physique amélioré
+    Centre la selection de niveau par rapport au dernier lvl
 
         Bonus Todo :
     Création de carte pour les joueurs

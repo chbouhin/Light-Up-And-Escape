@@ -155,6 +155,7 @@ MonoBehaviour:
   sceneLoader: {fileID: 1430896787}
   levelsSelectContent: {fileID: 1035146135}
   levelSelectButton: {fileID: 7533573925332680303, guid: 354b6813b6a0ebe45876cdb44606734e, type: 3}
+  levelSelectScrollBar: {fileID: 1307869242}
   starsAnimationManager: {fileID: 1000398963}
 --- !u!4 &306749552
 Transform:
@@ -758,7 +759,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0.000030517578}
   m_SizeDelta: {x: 355, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1035146136
