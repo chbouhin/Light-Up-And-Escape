@@ -10,5 +10,6 @@ public class MenuManager : MonoBehaviour
     {
         audioManager = FindObjectOfType<AudioManager>();
         audioManager.ChangeMusicTheme(true);
+        PlayerPrefs.SetInt("IsInGame", 0);
     }
 }

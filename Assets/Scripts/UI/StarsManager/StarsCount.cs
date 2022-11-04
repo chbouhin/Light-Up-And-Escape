@@ -20,4 +20,9 @@ public class StarsCount : MonoBehaviour
         posStarsCount++;
         return stars[posStarsCount].transform.position;
     }
+
+    public int GetNbStars()
+    {
+        return posStarsCount + 1;
+    }
 }

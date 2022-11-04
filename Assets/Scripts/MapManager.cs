@@ -26,10 +26,11 @@ public class MapManager : MonoBehaviour
 
     private void Awake()
     {
-        SetLevelIndex(2);
+        SetLevelIndex(PlayerPrefs.GetInt("LevelId", 1));
+        Load();
     }
 
-    private void Update()
+    private void Update()//TEMP
     {
         if (Input.GetKey(KeyCode.LeftControl)) {
             if (Input.GetKeyDown(KeyCode.A))

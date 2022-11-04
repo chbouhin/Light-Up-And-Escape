@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private InputManager inputManager;
     [SerializeField] private Popup pause;
     [SerializeField] private Popup victory;
+    [SerializeField] private StarsCount starsCount;
     [SerializeField] private List<ButtonManager> buttonsInPause;
     [SerializeField] private Square square;
     [HideInInspector] public bool isInGame = false;
@@ -17,6 +19,7 @@ public class GameManager : MonoBehaviour
     {
         audioManager = FindObjectOfType<AudioManager>();
         audioManager.ChangeMusicTheme(false);
+        PlayerPrefs.SetInt("IsInGame", 1);
     }
 
     private void Update()
@@ -49,5 +52,11 @@ public class GameManager : MonoBehaviour
         audioManager.Play("Victory");
         victory.OpenClose(true);
         square.StopMoving();
+        string filePath = Application.dataPath + "/JsonData/LevelsData/LevelsData.json";
+        string json = File.ReadAllText(filePath);
+        LevelsData levelsData = JsonUtility.FromJson<LevelsData>(json);
+        levelsData.starsCount[PlayerPrefs.GetInt("LevelId", 1) - 1] = starsCount.GetNbStars();
+        json = JsonUtility.ToJson(levelsData);
+        File.WriteAllText(filePath, json);
     }
 }

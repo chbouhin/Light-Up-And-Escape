@@ -17,7 +17,6 @@ public class UIStar : MonoBehaviour
 
     private void Update()
     {
-        // transform.position = Vector2.Lerp(transform.position, destination, moveSpeed);
         transform.position = Vector2.MoveTowards(transform.position, destination, moveSpeed * Time.deltaTime);
         if (Vector2.Distance(transform.position, destination) < sizeCol) {
             starsCount.AddNewStar();
