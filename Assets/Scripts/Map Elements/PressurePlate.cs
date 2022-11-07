@@ -10,23 +10,19 @@ public class PressurePlate : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Square" || col.gameObject.tag == "Box") {
-            nbOfCol++;
-            if (nbOfCol == 1) {
-                animator.SetBool("isPressing", true);
-                powering.SendPower(true);
-            }
+        nbOfCol++;
+        if (nbOfCol == 1) {
+            animator.SetBool("isPressing", true);
+            powering.SendPower(true);
         }
     }
 
     private void OnTriggerExit2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Square" || col.gameObject.tag == "Box") {
-            nbOfCol--;
-            if (nbOfCol == 0) {
-                animator.SetBool("isPressing", false);
-                powering.SendPower(false);
-            }
+        nbOfCol--;
+        if (nbOfCol == 0) {
+            animator.SetBool("isPressing", false);
+            powering.SendPower(false);
         }
     }
 }

@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private InputManager inputManager;
     [SerializeField] private Popup pause;
     [SerializeField] private Popup victory;
+    [SerializeField] private Popup defeat;
     [SerializeField] private StarsCount starsCount;
     [SerializeField] private List<ButtonManager> buttonsInPause;
     [SerializeField] private Square square;
@@ -58,5 +59,13 @@ public class GameManager : MonoBehaviour
         levelsData.starsCount[PlayerPrefs.GetInt("LevelId", 1) - 1] = starsCount.GetNbStars();
         json = JsonUtility.ToJson(levelsData);
         File.WriteAllText(filePath, json);
+    }
+
+    public void Lose()
+    {
+        isInGame = false;
+        audioManager.Play("Lose");
+        defeat.OpenClose(true);
+        square.StopMoving();
     }
 }

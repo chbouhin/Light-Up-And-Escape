@@ -9,7 +9,7 @@ public class BoxManager : Held
     [SerializeField] private BoxCollider2D triggerBoxCollider;
     [SerializeField] private LayerMask groundLayer;
     private Vector2 savePosition;
-    private float statMultiplicator = 1.75f; // bigger is it, lower the player will move and jump
+    private float statMultiplier = 1.75f; // bigger is it, lower the player will move and jump
 
     public override void IsGrab()
     {
@@ -18,8 +18,7 @@ public class BoxManager : Held
         normalBoxCollider.enabled = false;
         triggerBoxCollider.enabled = false;
         base.IsGrab();
-        square.moveSpeed /= statMultiplicator;
-        square.jumpForce /= statMultiplicator;
+        square.SetStat(false, statMultiplier);
         transform.localRotation = Quaternion.identity;
         savePosition = transform.localPosition;
     }
@@ -35,7 +34,6 @@ public class BoxManager : Held
         normalBoxCollider.enabled = true;
         triggerBoxCollider.enabled = true;
         base.IsThrow();
-        square.moveSpeed *= statMultiplicator;
-        square.jumpForce *= statMultiplicator;
+        square.SetStat(true, statMultiplier);
     }
 }

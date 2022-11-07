@@ -29,13 +29,13 @@
     Grille
     Etoile en jeu (système de point)
     Animation des étoiles dans le lvl select
-
-        Todo :
     Ennemi type 1
     Ennemi type 2
+
+        Todo :
     Tuto
     6 lvl
-    Revoir audioManager pour les sons
+    Revoir audioManager pour les sons (ou pas)
 
 
 

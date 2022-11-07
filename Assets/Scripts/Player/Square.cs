@@ -8,15 +8,21 @@ public class Square : Player
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Animator animator;
-    [HideInInspector] public float moveSpeed = 5f;
-    [HideInInspector] public float jumpForce = 7f;
-    [HideInInspector] public bool isGrounded = true;
     [HideInInspector] public Held held;
+    protected AudioManager audioManager;
+    private Dictionary<int, Held> heldObjs = new Dictionary<int, Held>();
     private float horizontal;
     private float lastDirection = 1f; // -1 for left | 1 for right
     private float rotationZ = 0f;
     private float rotationSpeed = 275f;
-    private Dictionary<int, Held> heldObjs = new Dictionary<int, Held>();
+    private float moveSpeed = 5f;
+    private float jumpForce = 7f;
+    private bool isGrounded = true;
+
+    private void Start()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
+    }
 
     private void Update()
     {
@@ -104,5 +110,16 @@ public class Square : Player
     public void HeldObjOnTriggerExit(int instanceId)
     {
         heldObjs.Remove(instanceId);
+    }
+
+    public void SetStat(bool isBoost, float multiplier)
+    {
+        if (isBoost) {
+            moveSpeed *= multiplier;
+            jumpForce *= multiplier;
+        } else {
+            moveSpeed /= multiplier;
+            jumpForce /= multiplier;
+        }
     }
 }

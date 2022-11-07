@@ -57,7 +57,7 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Loose
+  - name: Lose
     clip: {fileID: 8300000, guid: cb8db5516a6814a66af057954771b42c, type: 3}
     volume: 1
     pitch: 1

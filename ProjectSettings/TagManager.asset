@@ -19,6 +19,8 @@ TagManager:
   - VictoryChest
   - BarWall
   - Star
+  - DarkMob
+  - LightMob
   layers:
   - Default
   - TransparentFX
@@ -30,9 +32,9 @@ TagManager:
   - Square
   - MouseLight
   - BarWall
-  - 
-  - 
-  - 
+  - DarkMob
+  - LightMob
+  - PressurePlate
   - 
   - 
   - 
