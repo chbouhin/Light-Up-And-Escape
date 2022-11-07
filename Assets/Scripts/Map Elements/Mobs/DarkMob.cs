@@ -23,7 +23,7 @@ public class DarkMob : Mob
         if (stopDetectTimer > 0f) {
             velocity.x = lastMove;
         } else {
-            velocity.x = player.transform.position.x - transform.position.x < 0f ? -1f : 1f;
+            velocity.x = player.transform.position.x - transform.position.x < 0f ? -moveSpeed : moveSpeed;
             lastMove = velocity.x;
         }
         if (Physics2D.OverlapCircle(groundCheck.position, 0.02f, wallLayerMask)) {

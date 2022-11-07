@@ -11,7 +11,7 @@ public abstract class Mob : MonoBehaviour
     [SerializeField] private Transform topPlayerDetect;
     protected Player player;
     protected Vector2 velocity = new Vector2();
-    protected float moveSpeed = 1f;
+    protected float moveSpeed = 1.75f;
     protected bool isIdle = true;
     protected float stopDetectTimer = 0f;
     private float rangeDetection = 5f;

@@ -28,6 +28,7 @@ public class MapManager : MonoBehaviour
     {
         SetLevelIndex(PlayerPrefs.GetInt("LevelId", 1));
         Load();
+        // Save(); // TEMP
     }
 
     private void Update()//TEMP
@@ -43,11 +44,11 @@ public class MapManager : MonoBehaviour
     private void Save()
     {
         TilemapDatas tilemapDatas = new TilemapDatas();
-        tilemapDatas.tilesPos = new List<Vector3Int>();
+        tilemapDatas.tilesPos = new List<Vector2Int>();
         tilemapDatas.mapElements = new List<MapElements>();
 
-        foreach (Vector3Int tilePos in tilemap.cellBounds.allPositionsWithin)
-            if (tilemap.HasTile(tilePos))
+        foreach (Vector2Int tilePos in tilemap.cellBounds.allPositionsWithin)
+            if (tilemap.HasTile((Vector3Int)tilePos))
                 tilemapDatas.tilesPos.Add(tilePos);
         tilemapDatas.squarePos = square.position;
         tilemapDatas.mouseLightPos = mouseLight.transform.position;
@@ -55,6 +56,7 @@ public class MapManager : MonoBehaviour
             MapElements tempMapElements = new MapElements();
             tempMapElements.id = GetMapElementFromTag(mapElementObj.gameObject.tag);
             tempMapElements.pos = mapElementObj.localPosition;
+            tempMapElements.rot = mapElementObj.eulerAngles.z;
             tempMapElements.idLink = GetLinkOfMapElements(mapElementsObj, tempMapElements.id, mapElementObj);
             tilemapDatas.mapElements.Add(tempMapElements);
         }
@@ -105,8 +107,8 @@ public class MapManager : MonoBehaviour
         TilemapDatas tilemapsDatas = JsonUtility.FromJson<TilemapDatas>(json);
         List<Transform> objs = new List<Transform>();
         int count = 0;
-        foreach (Vector3Int tilePos in tilemapsDatas.tilesPos)
-            tilemap.SetTile(tilePos, autoTile);
+        foreach (Vector2Int tilePos in tilemapsDatas.tilesPos)
+            tilemap.SetTile((Vector3Int)tilePos, autoTile);
         square.position = tilemapsDatas.squarePos;
         mouseLight.SetPos(tilemapsDatas.mouseLightPos);
         foreach (MapElements mapElements in tilemapsDatas.mapElements)
@@ -123,6 +125,7 @@ public class MapManager : MonoBehaviour
         Transform tempObj;
         tempObj = Instantiate(obj, mapElementsObj).transform;
         tempObj.localPosition = mapElements.pos;
+        tempObj.Rotate(0f, 0f, mapElements.rot);
         objs.Add(tempObj);
     }
 
@@ -150,12 +153,20 @@ public class MapManager : MonoBehaviour
         this.levelIndex = levelIndex;
         filePath = Application.dataPath + "/JsonData/LevelsData/Level_" + levelIndex + ".json";
     }
+
+    public void SetLevelIndex(string levelIndex)//TEMP
+    {
+        int levelIndexInt = int.Parse(levelIndex);
+        this.levelIndex = levelIndexInt;
+        filePath = Application.dataPath + "/JsonData/LevelsData/Level_" + levelIndexInt + ".json";
+        PlayerPrefs.SetInt("LevelId", levelIndexInt);
+    }
 }
 
 [System.Serializable]
 public class TilemapDatas
 {
-    public List<Vector3Int> tilesPos;
+    public List<Vector2Int> tilesPos;
     public Vector2 squarePos;
     public Vector2 mouseLightPos;
     public List<MapElements> mapElements;
@@ -165,7 +176,8 @@ public class TilemapDatas
 public class MapElements
 {
     public int id;
-    public Vector3 pos;
+    public Vector2 pos;
+    public float rot;
     public List<int> idLink;
 }
 
@@ -220,4 +232,5 @@ public class MapObj
 148
 56
 65
+11
 */
