@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StarAnimation : MonoBehaviour
+public class CoinAnimation : MonoBehaviour
 {
     private Transform destination;
-    private float sizeMult = 2.5f;
+    private float sizeMult = 3.5f;
     private float sizeSpeed = 1.5f;
     private float moveSpeedTime = 3f;
     private float timerMoveSpeed = 0f;

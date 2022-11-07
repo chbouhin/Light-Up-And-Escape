@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Popup pause;
     [SerializeField] private Popup victory;
     [SerializeField] private Popup defeat;
-    [SerializeField] private StarsCount starsCount;
+    [SerializeField] private CoinsCount coinsCount;
     [SerializeField] private List<ButtonManager> buttonsInPause;
     [SerializeField] private Square square;
     [HideInInspector] public bool isInGame = false;
@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
         string filePath = Application.dataPath + "/JsonData/LevelsData/LevelsData.json";
         string json = File.ReadAllText(filePath);
         LevelsData levelsData = JsonUtility.FromJson<LevelsData>(json);
-        levelsData.starsCount[PlayerPrefs.GetInt("LevelId", 1) - 1] = starsCount.GetNbStars();
+        levelsData.coinsCount[PlayerPrefs.GetInt("LevelId", 1) - 1] = coinsCount.GetNbCoins();
         json = JsonUtility.ToJson(levelsData);
         File.WriteAllText(filePath, json);
     }

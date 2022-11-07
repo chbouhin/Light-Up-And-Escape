@@ -14239,7 +14239,7 @@ MonoBehaviour:
   pause: {fileID: 1983994794}
   victory: {fileID: 1552521391}
   defeat: {fileID: 1747171051}
-  starsCount: {fileID: 2024614070}
+  coinsCount: {fileID: 2024614070}
   buttonsInPause:
   - {fileID: 1808467186}
   - {fileID: 1094830918}
@@ -14717,7 +14717,7 @@ GameObject:
   - component: {fileID: 2024614068}
   - component: {fileID: 2024614070}
   m_Layer: 5
-  m_Name: StarsCount
+  m_Name: CoinsCount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14796,7 +14796,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 673e7d862cd0169488fd8aa240e58dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stars:
+  coins:
   - {fileID: 1571706015}
   - {fileID: 1144196131}
   - {fileID: 1255525778}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -4348499788010095383}
   - component: {fileID: 538231311549194331}
   m_Layer: 0
-  m_Name: Star
+  m_Name: Coin
   m_TagString: Star
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d641011f2d5e8449887911db70193b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIStars: {fileID: 1955572583100041203, guid: 9dc278cbd0b539e4495b95f2316a447b, type: 3}
+  UICoins: {fileID: 1955572583100041203, guid: 9dc278cbd0b539e4495b95f2316a447b, type: 3}
 --- !u!1 &4838580421594748823
 GameObject:
   m_ObjectHideFlags: 0
