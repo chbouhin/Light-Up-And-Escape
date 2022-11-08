@@ -28,7 +28,6 @@ public class MapManager : MonoBehaviour
     {
         SetLevelIndex(PlayerPrefs.GetInt("LevelId", 1));
         Load();
-        // Save(); // TEMP
     }
 
     private void Update()//TEMP

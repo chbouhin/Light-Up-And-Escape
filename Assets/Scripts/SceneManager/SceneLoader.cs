@@ -23,7 +23,7 @@ public class SceneLoader : MonoBehaviour
     private IEnumerator LoadSceneWithTransition(string sceneName)
     {
         transition.SetTrigger("HideScene");
-        yield return new WaitForSecondsRealtime(transitionTime);
+        yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadSceneAsync(sceneName);
     }
 

@@ -56,4 +56,10 @@
 
 
 
+        Questions :
+    Est ce que je dois aggrandir la lumière?
+    Est ce que il faut retirer le compte à rebours
+    Est ce que je met une petite lumiere sur le square?
+    mettre des particules sur l ecran? que sur le noir?
+
 */

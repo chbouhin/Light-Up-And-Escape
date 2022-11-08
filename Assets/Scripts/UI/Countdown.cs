@@ -13,8 +13,7 @@ public class Countdown : MonoBehaviour
     private void Start()
     {
         text = transform.GetComponent<TextMeshProUGUI>();
-        // StartCoroutine(StartCountdown(3));// TEMPORAIRE
-        StartCoroutine(StartCountdown(0));// TEMPORAIRE
+        StartCoroutine(StartCountdown(3));
     }
 
     private IEnumerator StartCountdown(int countdown)
