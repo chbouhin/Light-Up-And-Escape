@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using System.IO;
+using System.Linq;
 
 public class MapManager : MonoBehaviour
 {
@@ -10,7 +11,6 @@ public class MapManager : MonoBehaviour
     [SerializeField] private TileBase autoTile;
     [SerializeField] private Transform square;
     [SerializeField] private MouseLight mouseLight;
-    [SerializeField] private Transform mapElementsObj;
     [SerializeField] private List<MapObj> mapObjs;
     private string filePath;
     private int levelIndex;
@@ -51,12 +51,16 @@ public class MapManager : MonoBehaviour
                 tilemapDatas.tilesPos.Add(tilePos);
         tilemapDatas.squarePos = square.position;
         tilemapDatas.mouseLightPos = mouseLight.transform.position;
-        foreach (Transform mapElementObj in mapElementsObj) {
+        List<Transform> tempMapElementsObj = new List<Transform>();
+        foreach (Transform child in transform)
+            tempMapElementsObj.Add(child);
+        tempMapElementsObj = tempMapElementsObj.OrderBy(obj => obj.position.x).ToList();
+        foreach (Transform mapElementObj in tempMapElementsObj) {
             MapElements tempMapElements = new MapElements();
             tempMapElements.id = GetMapElementFromTag(mapElementObj.gameObject.tag);
-            tempMapElements.pos = mapElementObj.localPosition;
+            tempMapElements.pos = new Vector2(Mathf.Round(mapElementObj.localPosition.x * 2f) * 0.5f, Mathf.Round(mapElementObj.localPosition.y * 2f) * 0.5f);
             tempMapElements.rot = mapElementObj.eulerAngles.z;
-            tempMapElements.idLink = GetLinkOfMapElements(mapElementsObj, tempMapElements.id, mapElementObj);
+            tempMapElements.idLink = GetLinkOfMapElements(tempMapElementsObj, tempMapElements.id, mapElementObj);
             tilemapDatas.mapElements.Add(tempMapElements);
         }
 
@@ -73,7 +77,7 @@ public class MapManager : MonoBehaviour
         return 0;
     }
 
-    private List<int> GetLinkOfMapElements(Transform mapElementsObj, int objId, Transform mapElementObj)
+    private List<int> GetLinkOfMapElements(List<Transform> mapElementsObj, int objId, Transform mapElementObj)
     {
         List<int> listMapElements = new List<int>();
         if (mapObjs[objId].tag == "PressurePlate" || mapObjs[objId].tag == "SwitchButton") {
@@ -88,7 +92,7 @@ public class MapManager : MonoBehaviour
         return listMapElements;
     }
 
-    private void SearchForLinkTwoMapElement(Transform mapElementsObj, List<int> listMapElements, int instanceId)
+    private void SearchForLinkTwoMapElement(List<Transform> mapElementsObj, List<int> listMapElements, int instanceId)
     {
         int idLink = 0;
         foreach (Transform tempMapElementObj in mapElementsObj) {
@@ -122,7 +126,7 @@ public class MapManager : MonoBehaviour
     private void InstantiateObj(MapElements mapElements, List<Transform> objs, GameObject obj)
     {
         Transform tempObj;
-        tempObj = Instantiate(obj, mapElementsObj).transform;
+        tempObj = Instantiate(obj, transform).transform;
         tempObj.localPosition = mapElements.pos;
         tempObj.Rotate(0f, 0f, mapElements.rot);
         objs.Add(tempObj);

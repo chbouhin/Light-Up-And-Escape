@@ -19,7 +19,7 @@
     Gestion de mort
     Vide
     Camera qui se bloque si hors map
-    Defaite
+    Defaite => delete suite aux conseils
     Victoire
     Mapage des touches
     Bouton switch
@@ -53,13 +53,14 @@
     Checkpoint
     Afficher la touche sur obj si interactable
     Skin
+    beaucoup + de sons (morts, bouttons, pressurePlate, coffre, porte, plusieurs type de sons pour tous les obj (open/close))
+    particules de mort (different en fonction de la mort)
 
 
 
-        Questions :
-    Est ce que je dois aggrandir la lumière?
-    Est ce que il faut retirer le compte à rebours
-    Est ce que je met une petite lumiere sur le square?
-    mettre des particules sur l ecran? que sur le noir?
+
+    eviter du texte, faire en sorte que ce soit instinctif
+    obliger le joueur a faire des actions pour expliquer le jeu
+    itch.io
 
 */

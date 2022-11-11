@@ -6,13 +6,13 @@ using System.IO;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private InputManager inputManager;
+    [SerializeField] private SceneLoader sceneLoader;
     [SerializeField] private Popup pause;
     [SerializeField] private Popup victory;
-    [SerializeField] private Popup defeat;
     [SerializeField] private CoinsCount coinsCount;
     [SerializeField] private List<ButtonManager> buttonsInPause;
     [SerializeField] private Square square;
-    [HideInInspector] public bool isInGame = false;
+    [HideInInspector] public bool isInGame;
     private AudioManager audioManager;
     private bool isPause = false;
 
@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
         audioManager = FindObjectOfType<AudioManager>();
         audioManager.ChangeMusicTheme(false);
         PlayerPrefs.SetInt("IsInGame", 1);
+        isInGame = true;
     }
 
     private void Update()
@@ -64,8 +65,13 @@ public class GameManager : MonoBehaviour
     public void Lose()
     {
         isInGame = false;
-        audioManager.Play("Lose");
-        defeat.OpenClose(true);
         square.StopMoving();
+        StartCoroutine(RestartGame(1.75f));
+    }
+
+    private IEnumerator RestartGame(float transitionTime)
+    {
+        yield return new WaitForSeconds(transitionTime);
+        sceneLoader.LoadNewScene("Game");
     }
 }

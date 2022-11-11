@@ -7,7 +7,12 @@ using UnityEngine.UI;
 public class SceneLoader : MonoBehaviour
 {
     public Animator transition;
-    private float transitionTime = 0.5f;
+    private float transitionTime = 0.333f;
+
+    private void Awake()
+    {
+        transition.SetTrigger("ShowScene");
+    }
 
     public void LoadNewScene(string sceneName)
     {
@@ -23,7 +28,7 @@ public class SceneLoader : MonoBehaviour
     private IEnumerator LoadSceneWithTransition(string sceneName)
     {
         transition.SetTrigger("HideScene");
-        yield return new WaitForSeconds(transitionTime);
+        yield return new WaitForSecondsRealtime(transitionTime);
         SceneManager.LoadSceneAsync(sceneName);
     }
 

@@ -14,6 +14,9 @@ public class CameraManager : MonoBehaviour
 
     private void Start()
     {
+        Vector2 newPos = (square.position + mouseLight.position) / 2;
+        Vector2 screenSizeInWorld = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height)) - Camera.main.ScreenToWorldPoint(new Vector2(0, 0));
+        transform.position = new Vector3(newPos.x, newPos.y, transform.position.z);
         position = transform.position;
     }
 

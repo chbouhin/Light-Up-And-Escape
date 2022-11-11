@@ -17,10 +17,11 @@ TagManager:
   - PressurePlate
   - SwitchButton
   - VictoryChest
-  - BarWall
   - Star
   - DarkMob
   - LightMob
+  - BarWallSquare
+  - BarWallMouseLight
   layers:
   - Default
   - TransparentFX
@@ -31,12 +32,12 @@ TagManager:
   - Box
   - Square
   - MouseLight
-  - BarWall
+  - 
   - DarkMob
   - LightMob
   - PressurePlate
-  - 
-  - 
+  - BarWallMouseLight
+  - BarWallSquare
   - 
   - 
   - 
