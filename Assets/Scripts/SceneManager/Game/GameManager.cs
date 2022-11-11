@@ -8,7 +8,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private InputManager inputManager;
     [SerializeField] private SceneLoader sceneLoader;
     [SerializeField] private Popup pause;
-    [SerializeField] private Popup victory;
     [SerializeField] private CoinsCount coinsCount;
     [SerializeField] private List<ButtonManager> buttonsInPause;
     [SerializeField] private Square square;
@@ -52,7 +51,6 @@ public class GameManager : MonoBehaviour
     {
         isInGame = false;
         audioManager.Play("Victory");
-        victory.OpenClose(true);
         square.StopMoving();
         string filePath = Application.dataPath + "/JsonData/LevelsData/LevelsData.json";
         string json = File.ReadAllText(filePath);
@@ -60,18 +58,13 @@ public class GameManager : MonoBehaviour
         levelsData.coinsCount[PlayerPrefs.GetInt("LevelId", 1) - 1] = coinsCount.GetNbCoins();
         json = JsonUtility.ToJson(levelsData);
         File.WriteAllText(filePath, json);
+        sceneLoader.LoadNewSceneWithDelay("LevelSelection", 2.5f);
     }
 
     public void Lose()
     {
         isInGame = false;
         square.StopMoving();
-        StartCoroutine(RestartGame(1.75f));
-    }
-
-    private IEnumerator RestartGame(float transitionTime)
-    {
-        yield return new WaitForSeconds(transitionTime);
-        sceneLoader.LoadNewScene("Game");
+        sceneLoader.LoadNewSceneWithDelay("Game", 1.75f);
     }
 }

@@ -7,9 +7,9 @@ using UnityEngine.UI;
 public class SceneLoader : MonoBehaviour
 {
     public Animator transition;
-    private float transitionTime = 0.333f;
+    private float transitionTime = 0.5f;
 
-    private void Awake()
+    private void Start()
     {
         transition.SetTrigger("ShowScene");
     }
@@ -20,9 +20,20 @@ public class SceneLoader : MonoBehaviour
         StartCoroutine(LoadSceneWithTransition(sceneName));
     }
 
+    public void LoadNewSceneWithDelay(string sceneName, float delay)
+    {
+        StartCoroutine(LoadSceneWithTransitionWithDelay(sceneName, delay));
+    }
+
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    private IEnumerator LoadSceneWithTransitionWithDelay(string sceneName, float delay)
+    {
+        yield return new WaitForSecondsRealtime(delay);
+        LoadNewScene(sceneName);
     }
 
     private IEnumerator LoadSceneWithTransition(string sceneName)
