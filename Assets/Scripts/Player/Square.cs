@@ -6,10 +6,9 @@ using System.Linq;
 public class Square : Player
 {
     [SerializeField] private Transform groundCheck;
-    [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Animator animator;
+    [SerializeField] private ParticleSystem fallDeathParticules;
     [HideInInspector] public Held held;
-    protected AudioManager audioManager;
     private Dictionary<int, Held> heldObjs = new Dictionary<int, Held>();
     private float horizontal;
     private float lastDirection = 1f; // -1 for left | 1 for right
@@ -19,19 +18,16 @@ public class Square : Player
     private float jumpForce = 7f;
     private bool isGrounded = true;
 
-    private void Start()
-    {
-        audioManager = FindObjectOfType<AudioManager>();
-    }
-
     private void Update()
     {
         CheckIfGrounded();
         if (gameManager.isInGame) {
             CheckIfMoving();
             CheckIfJump();
-            if (transform.position.y < -6f)
-                Die();
+            if (transform.position.y < -6f) {
+                rb.constraints = RigidbodyConstraints2D.FreezePosition;
+                Die(fallDeathParticules);
+            }
             if (inputManager.GetKeyDown("SquareInteract"))
                 CheckIfHeld();
         }

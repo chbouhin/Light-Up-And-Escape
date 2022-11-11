@@ -27,6 +27,9 @@ public class MouseLight : Player
             Vector2 minScreenBounds = Camera.main.ScreenToWorldPoint(new Vector2(0, 0));
             Vector2 maxScreenBounds = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
             destination = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D raycastHit = Physics2D.Linecast(transform.position, destination, groundLayer);
+            if (raycastHit)
+                destination = raycastHit.point;
             destination = new Vector3(Mathf.Clamp(destination.x, minScreenBounds.x, maxScreenBounds.x), Mathf.Clamp(destination.y, minScreenBounds.y, maxScreenBounds.y), 0f);
         }
         if (Vector2.Distance(transform.position, destination) > maxDistanceMove)
