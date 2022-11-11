@@ -16,5 +16,9 @@ public class SwitchButton : InteractableObj
         switchIsOn = !switchIsOn;
         image.sprite = switchIsOn ? spriteOn : spriteOff;
         powering.SendPower(switchIsOn);
+        if (switchIsOn)
+            audioManager.Play("SwitchButtonOn");
+        else
+            audioManager.Play("SwitchButtonOff");
     }
 }

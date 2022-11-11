@@ -57,12 +57,6 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Lose
-    clip: {fileID: 8300000, guid: cb8db5516a6814a66af057954771b42c, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
   - name: Victory
     clip: {fileID: 8300000, guid: 25fc03b1293dd4d8788619fde2a0a937, type: 3}
     volume: 1
@@ -71,6 +65,78 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Jump
     clip: {fileID: 8300000, guid: ddc3698514d64401b84ed16285136a77, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SquareDeath1
+    clip: {fileID: 8300000, guid: e66fb07c4f5261645b490aa33134b9b0, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SquareDeath2
+    clip: {fileID: 8300000, guid: ce03f18ad7b61834d91e6fe6b5fc204e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SquareDeath3
+    clip: {fileID: 8300000, guid: 73548e7636217d640be438b9f4ab7700, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MouseLightDeath1
+    clip: {fileID: 8300000, guid: 5816e816f0937af4c8033ae11cba027f, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MouseLightDeath2
+    clip: {fileID: 8300000, guid: b83b7b6ed3785d7428f00c588bf8ecb3, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SwitchButtonOn
+    clip: {fileID: 8300000, guid: e66f3731849c96947b79af109f10bd66, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SwitchButtonOff
+    clip: {fileID: 8300000, guid: f9057920195b96142b8765122946179d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PressurePlateOn
+    clip: {fileID: 8300000, guid: 010a5750f62838048ba990eb6c963635, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PressurePlateOff
+    clip: {fileID: 8300000, guid: d2c4a4b41ff35984697475c7be501d67, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: DoorOpen
+    clip: {fileID: 8300000, guid: 35116908134a4814586aef256c358fd6, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: DoorClose
+    clip: {fileID: 8300000, guid: be1224e7af594b841bc3c409fbabe351, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: VictoryChest
+    clip: {fileID: 8300000, guid: 652a6bb842a78fa4087c63d2f2d4608c, type: 3}
     volume: 1
     pitch: 1
     loop: 0

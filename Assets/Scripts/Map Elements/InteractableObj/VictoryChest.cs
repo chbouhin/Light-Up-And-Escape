@@ -10,5 +10,6 @@ public class VictoryChest : InteractableObj
     {
         animator.SetBool("open", true);
         FindObjectOfType<GameManager>().Victory();
+        audioManager.Play("VictoryChest");
     }
 }
