@@ -151,7 +151,7 @@ MonoBehaviour:
   animator: {fileID: 6869474590125320919}
   wallLayerMask:
     serializedVersion: 2
-    m_Bits: 520
+    m_Bits: 16904
   rb: {fileID: 6861363297116682212}
   topPlayerDetect: {fileID: 2137458010192626317}
 --- !u!1 &5568884561172787700

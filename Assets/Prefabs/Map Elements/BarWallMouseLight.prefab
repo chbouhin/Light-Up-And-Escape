@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 6020470819784853250}
   - component: {fileID: 6020470819784853251}
   - component: {fileID: 6020470819784853248}
-  m_Layer: 9
-  m_Name: BarWall
-  m_TagString: BarWall
+  m_Layer: 13
+  m_Name: BarWallMouseLight
+  m_TagString: BarWallMouseLight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6020470819784853249}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.5, y: -1.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7b59031186becf74f8f8842e82407e8d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ac229c0d8569cab4db867132eff8b11d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
