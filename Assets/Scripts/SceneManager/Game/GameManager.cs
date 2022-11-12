@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private CoinsCount coinsCount;
     [SerializeField] private List<ButtonManager> buttonsInPause;
     [SerializeField] private Square square;
+    [SerializeField] private SpriteRenderer squareSkin;
     [HideInInspector] public bool isInGame;
     private AudioManager audioManager;
     private bool isPause = false;
@@ -50,6 +51,9 @@ public class GameManager : MonoBehaviour
     public void Victory()
     {
         isInGame = false;
+        Color tempColor = squareSkin.color;
+        tempColor.a = 0.5f;
+        squareSkin.color = tempColor;
         audioManager.Play("Victory");
         square.StopMoving();
         string filePath = Application.dataPath + "/JsonData/LevelsData/LevelsData.json";

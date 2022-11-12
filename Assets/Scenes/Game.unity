@@ -17808,6 +17808,7 @@ MonoBehaviour:
   - {fileID: 1018255901}
   - {fileID: 1373976077}
   square: {fileID: 235363856}
+  squareSkin: {fileID: 1577996887}
   isInGame: 0
 --- !u!4 &1847620716
 Transform:

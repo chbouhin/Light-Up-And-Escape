@@ -5,8 +5,6 @@ using UnityEngine;
 public class DarkMob : Mob
 {
     [SerializeField] private Transform groundCheck;
-    [SerializeField] private Transform leftWallCheck;
-    [SerializeField] private Transform rightWallCheck;
     private float bigJumpForce = 5f;
     private float smallJumpForce = 2f;
     private float lastMove;
@@ -27,10 +25,9 @@ public class DarkMob : Mob
             lastMove = velocity.x;
         }
         if (Physics2D.OverlapCircle(groundCheck.position, 0.02f, wallLayerMask)) {
-            if (velocity.x == -1f)
-                velocity.y = Physics2D.OverlapCircle(leftWallCheck.position, 0.2f, wallLayerMask) ? bigJumpForce : smallJumpForce;
-            else
-                velocity.y = Physics2D.OverlapCircle(rightWallCheck.position, 0.2f, wallLayerMask) ? bigJumpForce : smallJumpForce;
+            Vector2 dir = velocity.x < 0f ? new Vector2(-1f, 0f) : Vector2.one;
+            RaycastHit2D raycastHit = Physics2D.Raycast(transform.position, dir, 1f, wallLayerMask);
+            velocity.y = raycastHit ? bigJumpForce : smallJumpForce;
         }
     }
 }

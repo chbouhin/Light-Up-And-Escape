@@ -15,7 +15,7 @@ public class Square : Player
     private float rotationZ = 0f;
     private float rotationSpeed = 275f;
     private float moveSpeed = 5f;
-    private float jumpForce = 7f;
+    private float jumpForce = 6.5f;
     private bool isGrounded = true;
 
     private void Update()
