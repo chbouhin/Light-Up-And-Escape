@@ -37,6 +37,8 @@ public class MapManager : MonoBehaviour
                 Save();
             if (Input.GetKeyDown(KeyCode.L))
                 Load();
+            if (Input.GetKeyDown(KeyCode.R))
+                FindObjectOfType<SceneLoader>().LoadNewScene("Game");
         }
     }
 
@@ -59,6 +61,7 @@ public class MapManager : MonoBehaviour
             MapElements tempMapElements = new MapElements();
             tempMapElements.id = GetMapElementFromTag(mapElementObj.gameObject.tag);
             tempMapElements.pos = new Vector2(Mathf.Round(mapElementObj.localPosition.x * 2f) * 0.5f, Mathf.Round(mapElementObj.localPosition.y * 2f) * 0.5f);
+            tempMapElements.rev = mapElementObj.localScale.x == -1;
             tempMapElements.rot = mapElementObj.eulerAngles.z;
             tempMapElements.idLink = GetLinkOfMapElements(tempMapElementsObj, tempMapElements.id, mapElementObj);
             tilemapDatas.mapElements.Add(tempMapElements);
@@ -128,6 +131,8 @@ public class MapManager : MonoBehaviour
         Transform tempObj;
         tempObj = Instantiate(obj, transform).transform;
         tempObj.localPosition = mapElements.pos;
+        if (mapElements.rev)
+            tempObj.localScale = new Vector2(-1f, 1f);
         tempObj.Rotate(0f, 0f, mapElements.rot);
         objs.Add(tempObj);
     }
@@ -179,9 +184,10 @@ public class TilemapDatas
 public class MapElements
 {
     public int id;
-    public Vector2 pos;
-    public float rot;
-    public List<int> idLink;
+    public Vector2 pos;         // Position
+    public float rot;           // Rotation
+    public bool rev;            // Reversed
+    public List<int> idLink;    // Link for power
 }
 
 [System.Serializable]
