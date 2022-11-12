@@ -21,12 +21,14 @@ public abstract class Player : MonoBehaviour
 
     public void Die(ParticleSystem deathParticleSystem = null)
     {
-        audioManager.Play(deathSounds[Random.Range(0, deathSounds.Count)]);
-        skin.SetActive(false);
-        if (deathParticleSystem)
-            deathParticleSystem.Play(true);
-        else
-            normalDeathParticules.Play(true);
-        gameManager.Lose();
+        if (gameManager.isInGame) {
+            audioManager.Play(deathSounds[Random.Range(0, deathSounds.Count)]);
+            skin.SetActive(false);
+            if (deathParticleSystem)
+                deathParticleSystem.Play(true);
+            else
+                normalDeathParticules.Play(true);
+            gameManager.Lose();
+        }
     }
 }

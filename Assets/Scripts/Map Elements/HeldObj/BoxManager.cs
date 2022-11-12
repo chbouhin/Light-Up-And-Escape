@@ -25,9 +25,9 @@ public class BoxManager : Held
 
     public override void IsThrow()
     {
-        // If between new pos and player == layer => between player and new pos, else new pos
-        if (Physics2D.OverlapCircle(transform.TransformPoint(Vector2.Lerp(Vector2.zero, savePosition / transform.localScale, 0.8f)), 0.45f, groundLayer))
-            transform.localPosition = Vector2.Lerp(transform.localPosition, savePosition, 0.45f);
+        RaycastHit2D raycastHit = Physics2D.Raycast(transform.position, savePosition, 1.25f, groundLayer);
+        if (raycastHit)
+            transform.position = Vector2.Lerp(transform.position, raycastHit.point, 0.75f);
         else
             transform.localPosition = savePosition;
         rigidBody.isKinematic = false;

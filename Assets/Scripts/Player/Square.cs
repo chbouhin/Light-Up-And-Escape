@@ -69,7 +69,7 @@ public class Square : Player
         }
     }
 
-    // Only stop the rotation if grounded
+    // Stop the rotation if grounded
     private void CheckIfFall()
     {
         if (!isGrounded) {
