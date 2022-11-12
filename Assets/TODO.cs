@@ -31,12 +31,11 @@
     Animation des étoiles dans le lvl select
     Ennemi type 1
     Ennemi type 2
-
-        Todo :
     Tuto
     6 lvl
-    Revoir audioManager pour les sons (ou pas)
 
+        Todo :
+    EMPTY
 
 
         Bonus Done :
@@ -46,6 +45,8 @@
     Move et saute moins haut avec une caisse
     Bordure géré et physique amélioré
     Centre la selection de niveau par rapport au dernier lvl
+    beaucoup + de sons (morts, bouttons, pressurePlate, coffre, porte, plusieurs type de sons pour tous les obj (open/close))
+    particules de mort (different en fonction de la mort)
 
         Bonus Todo :
     Création de carte pour les joueurs
@@ -53,8 +54,6 @@
     Checkpoint
     Afficher la touche sur obj si interactable
     Skin
-    beaucoup + de sons (morts, bouttons, pressurePlate, coffre, porte, plusieurs type de sons pour tous les obj (open/close))
-    particules de mort (different en fonction de la mort)
 
 
 
