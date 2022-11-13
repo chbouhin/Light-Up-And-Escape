@@ -59,9 +59,11 @@ public class GameManager : MonoBehaviour
         string filePath = Application.dataPath + "/JsonData/LevelsData/LevelsData.json";
         string json = File.ReadAllText(filePath);
         LevelsData levelsData = JsonUtility.FromJson<LevelsData>(json);
-        levelsData.coinsCount[PlayerPrefs.GetInt("LevelId", 1) - 1] = coinsCount.GetNbCoins();
+        int levelId = PlayerPrefs.GetInt("LevelId", 1);
+        levelsData.coinsCount[levelId - 1] = coinsCount.GetNbCoins();
         json = JsonUtility.ToJson(levelsData);
         File.WriteAllText(filePath, json);
+        PlayerPrefs.SetInt("LastLevelFinished", levelId);
         sceneLoader.LoadNewSceneWithDelay("LevelSelection", 2.5f);
     }
 

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.IO;
+using System.Linq;
 
 public class LevelSelectionManager : MonoBehaviour
 {
@@ -23,12 +24,17 @@ public class LevelSelectionManager : MonoBehaviour
         for (int count = 1; count <= levelsData.coinsCount.Count; count++) {
             GameObject newLevelSelectButton = Instantiate(levelSelectButton, levelsSelectContent);
             newLevelSelectButton.transform.GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>().text = count.ToString();
-            int tempInt = count;
-            newLevelSelectButton.GetComponent<Button>().onClick.AddListener(() => LoadLevel(tempInt));
+            if (count <= PlayerPrefs.GetInt("LastLevelFinished", 0) + 1) {
+                newLevelSelectButton.transform.GetChild(3).gameObject.SetActive(false);
+                int tempInt = count;
+                Button tempBtn = newLevelSelectButton.GetComponent<Button>();
+                tempBtn.onClick.AddListener(() => LoadLevel(tempInt));
+                tempBtn.interactable = true;
+            }
             if (lastLevel != count || PlayerPrefs.GetInt("IsInGame", 0) == 0)
                 SetCoinsColor(newLevelSelectButton, levelsData.coinsCount[count - 1]);
             else
-                coinsAnimationManager.StartAnimation(newLevelSelectButton.transform.GetChild(2), levelsData.coinsCount[PlayerPrefs.GetInt("LevelId", 1) - 1]);
+                coinsAnimationManager.StartAnimation(newLevelSelectButton.transform.GetChild(2), levelsData.coinsCount[lastLevel - 1]);
         }
         PlayerPrefs.SetInt("IsInGame", 0);
     }
