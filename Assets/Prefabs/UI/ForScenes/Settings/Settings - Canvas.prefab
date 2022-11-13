@@ -712,8 +712,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneLoader: {fileID: 0}
-  buttonToSettings: {fileID: 0}
-  buttonToBack: {fileID: 3033147875868034581}
   audioSliders:
   - {fileID: 2212254129492498255}
   - {fileID: 5206111750384742080}
@@ -3128,7 +3126,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 13849589c1e19db42ad918a14e50f76d, type: 3}
     - target: {fileID: 5549590616082418280, guid: 43319aff73f9cb44e9f7beb065bcb29d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5549590616082418280, guid: 43319aff73f9cb44e9f7beb065bcb29d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5549590616082418280, guid: 43319aff73f9cb44e9f7beb065bcb29d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5549590616082418280, guid: 43319aff73f9cb44e9f7beb065bcb29d, type: 3}
@@ -3136,16 +3142,36 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5983517618554293623}
     - target: {fileID: 5549590616082418280, guid: 43319aff73f9cb44e9f7beb065bcb29d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5549590616082418280, guid: 43319aff73f9cb44e9f7beb065bcb29d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5549590616082418280, guid: 43319aff73f9cb44e9f7beb065bcb29d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: HideSettings
+      value: ShowSettings
+      objectReference: {fileID: 0}
+    - target: {fileID: 5549590616082418280, guid: 43319aff73f9cb44e9f7beb065bcb29d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5549590616082418280, guid: 43319aff73f9cb44e9f7beb065bcb29d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: SettingsManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5549590616082418280, guid: 43319aff73f9cb44e9f7beb065bcb29d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: SettingsManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5549590616082418280, guid: 43319aff73f9cb44e9f7beb065bcb29d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5549590616082418280, guid: 43319aff73f9cb44e9f7beb065bcb29d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5837957977595376006, guid: 43319aff73f9cb44e9f7beb065bcb29d, type: 3}
       propertyPath: m_Pivot.x
@@ -3237,17 +3263,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43319aff73f9cb44e9f7beb065bcb29d, type: 3}
---- !u!114 &3033147875868034581 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5142315034422260792, guid: 43319aff73f9cb44e9f7beb065bcb29d, type: 3}
-  m_PrefabInstance: {fileID: 7875330835484504621}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3c210c370e35b54d870987e579d0ab4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &4345512339005572011 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5837957977595376006, guid: 43319aff73f9cb44e9f7beb065bcb29d, type: 3}

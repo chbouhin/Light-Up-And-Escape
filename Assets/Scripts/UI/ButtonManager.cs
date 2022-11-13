@@ -35,6 +35,7 @@ public class ButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     // Other
     private float objMinimumSize = 0.90f; // value from 0 to 1
+    private bool mouseIsOn = false;
 
     private void Start()
     {
@@ -78,14 +79,19 @@ public class ButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (spriteMouseOn)
+        if (spriteMouseOn) {
             image.sprite = spriteMouseOn;
+            mouseIsOn = true;
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (!buttonClicked && spriteMouseOn)
-            image.sprite = spriteMouseOut;
+        if (spriteMouseOn) {
+            if (!buttonClicked)
+                image.sprite = spriteMouseOut;
+            mouseIsOn = false;
+        }
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -110,11 +116,13 @@ public class ButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         if (image) {
             buttonClicked = false;
-            if (spriteMouseOn)
+            if (spriteMouseOn && !mouseIsOn)
                 image.sprite = spriteMouseOut;
             rectTransform.sizeDelta = buttonSize;
             animationTime = 0f;
             inAnimation = false;
+            if (haveText)
+                textMeshPro.fontSize = textSize;
         }
     }
 }

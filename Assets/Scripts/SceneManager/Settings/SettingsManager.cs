@@ -6,8 +6,6 @@ using UnityEngine.UI;
 public class SettingsManager : MonoBehaviour
 {
     [SerializeField] private SceneLoader sceneLoader;
-    [SerializeField] private List<ButtonManager> buttonsToSettings;
-    [SerializeField] private ButtonManager buttonToBack;
     [SerializeField] private List<SliderManager> audioSliders;
     [HideInInspector] public ButtonInputs buttonInputs;
     private AudioManager audioManager;
@@ -50,20 +48,12 @@ public class SettingsManager : MonoBehaviour
         audioSliders[Volumes.sound].SetValue(audioManager.GetSoundVolume() * ratioVolume);
     }
 
-    public void ShowSettings()
+    public void ShowSettings(bool show)
     {
-        buttonToBack.Reset();
-        StartCoroutine(HideShowSettingsWithTransition(true));
+        StartCoroutine(ShowSettingsWithTransition(show));
     }
 
-    public void HideSettings()
-    {
-        foreach (ButtonManager buttonToSettings in buttonsToSettings)
-            buttonToSettings.Reset();
-        StartCoroutine(HideShowSettingsWithTransition(false));
-    }
-
-    private IEnumerator HideShowSettingsWithTransition(bool show)
+    private IEnumerator ShowSettingsWithTransition(bool show)
     {
         sceneLoader.transition.SetTrigger("HideScene");
         yield return new WaitForSecondsRealtime(sceneLoader.GetTransitionTime());
