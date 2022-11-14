@@ -9,7 +9,7 @@ public class BoxManager : Held
     [SerializeField] private BoxCollider2D triggerBoxCollider;
     [SerializeField] private LayerMask groundLayer;
     private Vector2 savePosition;
-    private float statMultiplier = 1.65f; // bigger is it, lower the player will move and jump
+    private float statMultiplier = 1.5f; // bigger is it, lower the player will move and jump
 
     public override void IsGrab()
     {

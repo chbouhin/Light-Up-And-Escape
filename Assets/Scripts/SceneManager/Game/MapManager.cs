@@ -30,17 +30,17 @@ public class MapManager : MonoBehaviour
         Load();
     }
 
-    private void Update()//TEMP
-    {
-        if (Input.GetKey(KeyCode.LeftControl)) {
-            if (Input.GetKeyDown(KeyCode.A))
-                Save();
-            if (Input.GetKeyDown(KeyCode.L))
-                Load();
-            if (Input.GetKeyDown(KeyCode.R))
-                FindObjectOfType<SceneLoader>().LoadNewScene("Game");
-        }
-    }
+    // private void Update()
+    // {
+    //     if (Input.GetKey(KeyCode.LeftControl)) {
+    //         if (Input.GetKeyDown(KeyCode.A))
+    //             Save();
+    //         if (Input.GetKeyDown(KeyCode.L))
+    //             Load();
+    //         if (Input.GetKeyDown(KeyCode.R))
+    //             FindObjectOfType<SceneLoader>().LoadNewScene("Game");
+    //     }
+    // }
 
     private void Save()
     {
@@ -160,14 +160,6 @@ public class MapManager : MonoBehaviour
     {
         this.levelIndex = levelIndex;
         filePath = Application.dataPath + "/JsonData/LevelsData/Level_" + levelIndex + ".json";
-    }
-
-    public void SetLevelIndex(string levelIndex)//TEMP
-    {
-        int levelIndexInt = int.Parse(levelIndex);
-        this.levelIndex = levelIndexInt;
-        filePath = Application.dataPath + "/JsonData/LevelsData/Level_" + levelIndexInt + ".json";
-        PlayerPrefs.SetInt("LevelId", levelIndexInt);
     }
 }
 
