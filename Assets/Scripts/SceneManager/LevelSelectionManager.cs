@@ -16,7 +16,7 @@ public class LevelSelectionManager : MonoBehaviour
 
     private void Start()
     {
-        string json = File.ReadAllText(Application.dataPath + "/JsonData/LevelsData/LevelsData.json");
+        string json = File.ReadAllText(Application.persistentDataPath + "/JsonData/LevelsData/LevelsData.json");
         LevelsData levelsData = JsonUtility.FromJson<LevelsData>(json);
         int lastLevel = PlayerPrefs.GetInt("LevelId", 1);
         // Set slider pos (-34.5 is the pos to center 3 first buttons, 110 is the diff between the pos to center 1 2 3 and 4 5 6 buttons)
@@ -30,6 +30,8 @@ public class LevelSelectionManager : MonoBehaviour
                 Button tempBtn = newLevelSelectButton.GetComponent<Button>();
                 tempBtn.onClick.AddListener(() => LoadLevel(tempInt));
                 tempBtn.interactable = true;
+                newLevelSelectButton.GetComponent<Image>().color = Color.white;
+                newLevelSelectButton.transform.GetChild(0).GetComponent<Image>().color = Color.white;
             }
             if (lastLevel != count || PlayerPrefs.GetInt("IsInGame", 0) == 0)
                 SetCoinsColor(newLevelSelectButton, levelsData.coinsCount[count - 1]);

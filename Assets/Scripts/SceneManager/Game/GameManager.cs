@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
         squareSkin.color = tempColor;
         audioManager.Play("Victory");
         square.StopMoving();
-        string filePath = Application.dataPath + "/JsonData/LevelsData/LevelsData.json";
+        string filePath = Application.persistentDataPath + "/JsonData/LevelsData/LevelsData.json";
         string json = File.ReadAllText(filePath);
         LevelsData levelsData = JsonUtility.FromJson<LevelsData>(json);
         int levelId = PlayerPrefs.GetInt("LevelId", 1);

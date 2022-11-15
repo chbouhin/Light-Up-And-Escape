@@ -402,50 +402,45 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Christophe Bouhin
+  m_text: 'Chbouhin
 
-    Christophe Bouhin
+    Chbouhin
 
-    Christophe Bouhin
+    Chbouhin
 
-    Christophe
-    Bouhin
+    Chbouhin
 
-    Christophe Bouhin
+    Chbouhin
 
-    Christophe Bouhin
+    Chbouhin
 
-    Christophe Bouhin
+    Chbouhin
 
-    Christophe
-    Bouhin
+    Chbouhin
 
-    Christophe Bouhin
+    Chbouhin
 
-    Christophe Bouhin
+    Chbouhin
 
-    Christophe Bouhin
+    Chbouhin
 
-    Christophe
-    Bouhin
+    Chbouhin
 
-    Christophe Bouhin
+    Chbouhin
 
-    Christophe Bouhin
+    Chbouhin
 
-    Christophe Bouhin
+    Chbouhin
 
-    Christophe
-    Bouhin
+    Chbouhin
 
-    Christophe Bouhin
+    Chbouhin
 
-    Christophe Bouhin
+    Chbouhin
 
-    Christophe Bouhin
+    Chbouhin
 
-    Christophe
-    Bouhin'
+    Chbouhin'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d182897f28f01f547959cefbe862abe9, type: 2}
   m_sharedMaterial: {fileID: 142920800900446314, guid: d182897f28f01f547959cefbe862abe9, type: 2}
@@ -3813,6 +3808,10 @@ PrefabInstance:
     - target: {fileID: 2853014004122559913, guid: f5f9d6c4edf9ca040a165ff5a3bd0d39, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3760380545966468784, guid: f5f9d6c4edf9ca040a165ff5a3bd0d39, type: 3}
+      propertyPath: text
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5983517618554293623, guid: f5f9d6c4edf9ca040a165ff5a3bd0d39, type: 3}
       propertyPath: sceneLoader
