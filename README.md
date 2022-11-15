@@ -8,7 +8,7 @@
 
 # HOW TO START THE GAME ?
 
-After having downloaded the files, launch the executable in Unity\Light Up And Escape.
+Download the following project: https://github.com/chbouhin/Light-Up-And-Escape-EXEC, then run the file "Light Up And Escape.exe".
 
 # DEFAULT KEY MAPPING:
 
