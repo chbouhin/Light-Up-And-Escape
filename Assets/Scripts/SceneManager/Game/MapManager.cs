@@ -159,7 +159,7 @@ public class MapManager : MonoBehaviour
     public void SetLevelIndex(int levelIndex)
     {
         this.levelIndex = levelIndex;
-        filePath = Application.persistentDataPath + "/JsonData/LevelsData/Level_" + levelIndex + ".json";
+        filePath = Application.dataPath + "/JsonData/LevelsData/Level_" + levelIndex + ".json";
     }
 }
 

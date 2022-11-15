@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.IO;
-using TMPro;
  
 public class InputManager : MonoBehaviour
 {
@@ -13,7 +12,7 @@ public class InputManager : MonoBehaviour
 
     private void Awake()
     {
-        filePath = Application.persistentDataPath + "/JsonData/InputsData.json";
+        filePath = Application.dataPath + "/JsonData/InputsData.json";
         CreateKeyWords();
         Load();
     }
