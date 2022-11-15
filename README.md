@@ -2,7 +2,7 @@
 
 # GAMEPLAY
 
-- This is a puzzle platform game, you will control 2 characters and need both of them.
+- This is a 2D puzzle platform game, you will control 2 characters and need both of them.
 - You control a slime (the square) and a firefly (the round light).
 - The goal is to reach the end of a level by collecting as many coins as possible and avoiding dying.
 
@@ -24,7 +24,7 @@ After having downloaded the files, launch the executable in Unity\Light Up And E
 - Floor plates can also be activated by putting weight on them (via a box, a monster, or your slime)
 - When you turn on a device, it may open/close a door and/or a light.
 
-# DEVELOPMENT:
+# DEVLOPEMENT:
 
 I developed the game alone in my free time in 2 months.
 
