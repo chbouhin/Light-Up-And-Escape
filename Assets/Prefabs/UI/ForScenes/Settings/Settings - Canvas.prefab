@@ -1593,7 +1593,7 @@ PrefabInstance:
       objectReference: {fileID: 5983517618554293623}
     - target: {fileID: 8682526686496879396, guid: 63832a75172c4ba489db7b929f918d9a, type: 3}
       propertyPath: m_text
-      value: Pause Unpause Key
+      value: Pause Unpause
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63832a75172c4ba489db7b929f918d9a, type: 3}
@@ -1731,11 +1731,7 @@ PrefabInstance:
       objectReference: {fileID: 5983517618554293623}
     - target: {fileID: 8682526686496879396, guid: 63832a75172c4ba489db7b929f918d9a, type: 3}
       propertyPath: m_text
-      value: Mouse Light Interact Key
-      objectReference: {fileID: 0}
-    - target: {fileID: 8682526686496879396, guid: 63832a75172c4ba489db7b929f918d9a, type: 3}
-      propertyPath: m_characterSpacing
-      value: -4
+      value: Firefly Interact
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63832a75172c4ba489db7b929f918d9a, type: 3}
@@ -1873,7 +1869,7 @@ PrefabInstance:
       objectReference: {fileID: 5983517618554293623}
     - target: {fileID: 8682526686496879396, guid: 63832a75172c4ba489db7b929f918d9a, type: 3}
       propertyPath: m_text
-      value: Change Camera Key
+      value: Change Camera
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63832a75172c4ba489db7b929f918d9a, type: 3}
@@ -2125,11 +2121,7 @@ PrefabInstance:
       objectReference: {fileID: 5983517618554293623}
     - target: {fileID: 8682526686496879396, guid: 63832a75172c4ba489db7b929f918d9a, type: 3}
       propertyPath: m_text
-      value: Mouse Light Move Key
-      objectReference: {fileID: 0}
-    - target: {fileID: 8682526686496879396, guid: 63832a75172c4ba489db7b929f918d9a, type: 3}
-      propertyPath: m_characterSpacing
-      value: -4
+      value: Firefly Move
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63832a75172c4ba489db7b929f918d9a, type: 3}
@@ -2393,11 +2385,7 @@ PrefabInstance:
       objectReference: {fileID: 5983517618554293623}
     - target: {fileID: 8682526686496879396, guid: 63832a75172c4ba489db7b929f918d9a, type: 3}
       propertyPath: m_text
-      value: Square Move Left Key
-      objectReference: {fileID: 0}
-    - target: {fileID: 8682526686496879396, guid: 63832a75172c4ba489db7b929f918d9a, type: 3}
-      propertyPath: m_characterSpacing
-      value: -1
+      value: Slime Move Left
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63832a75172c4ba489db7b929f918d9a, type: 3}
@@ -2535,11 +2523,7 @@ PrefabInstance:
       objectReference: {fileID: 5983517618554293623}
     - target: {fileID: 8682526686496879396, guid: 63832a75172c4ba489db7b929f918d9a, type: 3}
       propertyPath: m_text
-      value: Square Interact
-      objectReference: {fileID: 0}
-    - target: {fileID: 8682526686496879396, guid: 63832a75172c4ba489db7b929f918d9a, type: 3}
-      propertyPath: m_characterSpacing
-      value: -1
+      value: Slime Interact
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63832a75172c4ba489db7b929f918d9a, type: 3}
@@ -2677,11 +2661,7 @@ PrefabInstance:
       objectReference: {fileID: 5983517618554293623}
     - target: {fileID: 8682526686496879396, guid: 63832a75172c4ba489db7b929f918d9a, type: 3}
       propertyPath: m_text
-      value: Square Move Right Key
-      objectReference: {fileID: 0}
-    - target: {fileID: 8682526686496879396, guid: 63832a75172c4ba489db7b929f918d9a, type: 3}
-      propertyPath: m_characterSpacing
-      value: -1
+      value: Slime Move Right
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63832a75172c4ba489db7b929f918d9a, type: 3}
@@ -2819,11 +2799,7 @@ PrefabInstance:
       objectReference: {fileID: 5983517618554293623}
     - target: {fileID: 8682526686496879396, guid: 63832a75172c4ba489db7b929f918d9a, type: 3}
       propertyPath: m_text
-      value: Square Jump
-      objectReference: {fileID: 0}
-    - target: {fileID: 8682526686496879396, guid: 63832a75172c4ba489db7b929f918d9a, type: 3}
-      propertyPath: m_characterSpacing
-      value: -1
+      value: Slime Jump
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63832a75172c4ba489db7b929f918d9a, type: 3}
