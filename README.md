@@ -1,4 +1,4 @@
-# Light-Up-And-Escape
+# Light Up And Escape
 
 # GAMEPLAY
 
@@ -22,8 +22,9 @@ Download the following project: https://github.com/chbouhin/Light-Up-And-Escape-
 - 2 types of monsters will be on your way, they only attack one of your characters, it's up to you to differentiate them.
 - Floor plates can also be activated by putting weight on them (via a box, a monster, or your slime)
 - When you turn on a device, it may open/close a door and/or a light.
+-To win, you must open the chest at the end of the level, also try to collect a maximum of coins on your way finish the game at 100%.
 
-# DEVLOPEMENT:
+# DEVELOPMENT:
 
 I developed the game alone in my free time in 2 months.
 
