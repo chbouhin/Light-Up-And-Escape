@@ -141,6 +141,12 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: CheckPointSound
+    clip: {fileID: 8300000, guid: 678706a2c03494d56bdce86112855e78, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   menuMusics:
   - clip: {fileID: 8300000, guid: 2f33e8d28206ec842b3c7d7a6b801606, type: 3}
     volume: 1
