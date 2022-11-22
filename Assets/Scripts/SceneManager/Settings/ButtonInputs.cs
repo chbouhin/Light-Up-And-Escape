@@ -44,6 +44,11 @@ public class ButtonInputs : MonoBehaviour
         PanelForInput.SetActive(false);
         settingsManager.buttonInputs = null;
         SetText(keyCode);
+        if (btnName == "SquareInteract" || btnName == "MouseLightInteract") {
+            ShowKey[] showKeys = GameObject.FindObjectsOfType<ShowKey>();
+            foreach (ShowKey showKey in showKeys)
+                showKey.ChangeKey();
+        }
     }
 
     public void Delete()

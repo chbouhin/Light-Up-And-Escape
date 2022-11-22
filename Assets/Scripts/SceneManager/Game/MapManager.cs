@@ -26,21 +26,22 @@ public class MapManager : MonoBehaviour
 
     private void Awake()
     {
+        PlayerPrefs.SetInt("LevelId", 2);
         SetLevelIndex(PlayerPrefs.GetInt("LevelId", 1));
         Load();
     }
 
-    // private void Update()
-    // {
-    //     if (Input.GetKey(KeyCode.LeftControl)) {
-    //         if (Input.GetKeyDown(KeyCode.A))
-    //             Save();
-    //         if (Input.GetKeyDown(KeyCode.L))
-    //             Load();
-    //         if (Input.GetKeyDown(KeyCode.R))
-    //             FindObjectOfType<SceneLoader>().LoadNewScene("Game");
-    //     }
-    // }
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.LeftControl)) {
+            if (Input.GetKeyDown(KeyCode.A))
+                Save();
+            if (Input.GetKeyDown(KeyCode.L))
+                Load();
+            if (Input.GetKeyDown(KeyCode.R))
+                FindObjectOfType<SceneLoader>().LoadNewScene("Game");
+        }
+    }
 
     private void Save()
     {

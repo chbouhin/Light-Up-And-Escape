@@ -13,20 +13,18 @@ public class ShowKey : MonoBehaviour
     private void Start()
     {
         inputManager = FindObjectOfType<InputManager>();
-        if (squareCanInteract)
-            ChangeKey(inputManager.GetKeyCodes("SquareInteract"));
-        else
-            ChangeKey(inputManager.GetKeyCodes("MouseLightInteract"));
+        ChangeKey();
     }
 
-    public void ChangeKey(KeyCodes keys)
+    public void ChangeKey()
     {
+        KeyCodes keys = squareCanInteract ? inputManager.GetKeyCodes("SquareInteract") : inputManager.GetKeyCodes("MouseLightInteract");
         textKey.text = "";
         if (keys.key1 != KeyCode.None)
             textKey.text += keys.key1.ToString();
         if (keys.key2 != KeyCode.None) {
             if (keys.key1 != KeyCode.None)
-                textKey.text += "|";
+                textKey.text += " | ";
             textKey.text += keys.key2.ToString();
         }
     }
