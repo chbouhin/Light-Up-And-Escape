@@ -12,8 +12,9 @@ Download the following project: https://github.com/chbouhin/Light-Up-And-Escape-
 
 # DEFAULT KEY MAPPING:
 
-![image](https://user-images.githubusercontent.com/47974387/202432833-7f2e0972-8cc7-45b7-8f03-a0c3bcdd4921.png)
-![image](https://user-images.githubusercontent.com/47974387/202432974-ec37b934-9a9c-4f01-9dba-27d7f2b89bd2.png)
+![image](https://user-images.githubusercontent.com/47974387/203386231-c64ecffa-ecf6-4b2a-9ebc-3f52ff814db8.png)
+![image](https://user-images.githubusercontent.com/47974387/203386343-8b023acc-62f8-420a-b054-b08890ab61f1.png)
+
 # BASIC RULE:
 
 - The firefly can activate the buttons.
