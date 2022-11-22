@@ -5,6 +5,7 @@
 - This is a 2D puzzle platform game, you will control 2 characters and need both of them.
 - You control a slime (the square) and a firefly (the round light).
 - The goal is to reach the end of a level by collecting as many coins as possible and avoiding dying.
+- Be careful, remember to light your way to avoid falling into traps.
 
 # HOW TO START THE GAME ?
 
@@ -17,13 +18,12 @@ Download the following project: https://github.com/chbouhin/Light-Up-And-Escape-
 
 # BASIC RULE:
 
-- The firefly can activate the buttons.
+- The firefly can activate buttons.
 - The slime can carry boxes and keys.
-- The 2 characters cannot cross the walls except some special walls that can only be crossed by one of the 2 characters.
 - 2 types of monsters will be on your way, they only attack one of your characters, it's up to you to differentiate them.
 - Floor plates can also be activated by putting weight on them (via a box, a monster, or your slime)
-- When you turn on a device, it may open/close a door and/or a light.
--To win, you must open the chest at the end of the level, also try to collect a maximum of coins on your way finish the game at 100%.
+- When you activate a device, it can : open/close doors; turn lights on/off; explode boxes.
+- To win, you must open the chest at the end of the level, also try to collect a maximum of coins on your way finish the game at 100%.
 
 # DEVELOPMENT:
 
