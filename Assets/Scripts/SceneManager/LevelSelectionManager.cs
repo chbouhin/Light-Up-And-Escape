@@ -51,6 +51,7 @@ public class LevelSelectionManager : MonoBehaviour
     public void LoadLevel(int levelId)
     {
         PlayerPrefs.SetInt("LevelId", levelId);
+        PlayerPrefs.SetInt("CheckPoint", 0);
         sceneLoader.LoadNewScene("Game");
     }
 }

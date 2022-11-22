@@ -48,6 +48,17 @@ public class GameManager : MonoBehaviour
         PauseUnpause();
     }
 
+    public void Restart()
+    {
+        PlayerPrefs.SetInt("CheckPoint", 0);
+        sceneLoader.LoadNewScene("Game");
+    }
+
+    public void KillPlayer()
+    {
+        square.Die();
+    }
+
     public void Victory()
     {
         isInGame = false;

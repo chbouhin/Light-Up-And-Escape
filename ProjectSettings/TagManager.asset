@@ -22,6 +22,14 @@ TagManager:
   - LightMob
   - BarWallSquare
   - BarWallMouseLight
+  - Spike
+  - RoundSpike
+  - PanelMouseLight
+  - PanelNoMouseLight
+  - PanelSquare
+  - PanelNoSquare
+  - CheckPoint
+  - Panel
   layers:
   - Default
   - TransparentFX
@@ -32,13 +40,13 @@ TagManager:
   - Box
   - Square
   - MouseLight
-  - 
+  - Spike
   - DarkMob
   - LightMob
   - PressurePlate
   - BarWallMouseLight
   - BarWallSquare
-  - 
+  - CheckPoint
   - 
   - 
   - 

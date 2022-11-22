@@ -9,6 +9,10 @@ public abstract class Mob : MonoBehaviour
     [SerializeField] protected LayerMask wallLayerMask;
     [SerializeField] protected Rigidbody2D rb;
     [SerializeField] private Transform topPlayerDetect;
+    [SerializeField] private List<string> deathSounds;
+    [SerializeField] private ParticleSystem normalDeathParticules;
+    [SerializeField] private ParticleSystem fallDeathParticules;
+    [SerializeField] private GameObject skin;
     protected Player player;
     protected Vector2 velocity = new Vector2();
     protected float moveSpeed = 1.75f;
@@ -16,10 +20,12 @@ public abstract class Mob : MonoBehaviour
     protected float stopDetectTimer = 0f;
     private float rangeDetection = 5f;
     private float timeStopDetect = 1.5f;
+    protected AudioManager audioManager;
 
     private void Start()
     {
         player = GetPlayer();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     protected abstract Player GetPlayer();
@@ -35,6 +41,10 @@ public abstract class Mob : MonoBehaviour
             isIdle = false;
         }
         animator.SetBool("isIdle", isIdle);
+        if (transform.position.y < -6f) {
+            rb.constraints = RigidbodyConstraints2D.FreezePosition;
+            Die(fallDeathParticules);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D  col)
@@ -49,5 +59,15 @@ public abstract class Mob : MonoBehaviour
             rb.velocity = velocity;
         else
             rb.velocity = Vector2.Lerp(rb.velocity, new Vector2(0f, rb.velocity.y), Time.deltaTime * 2);
+    }
+
+    public void Die(ParticleSystem deathParticleSystem = null)
+    {
+        audioManager.Play(deathSounds[Random.Range(0, deathSounds.Count)]);
+        skin.SetActive(false);
+        if (deathParticleSystem)
+            deathParticleSystem.Play(true);
+        else
+            normalDeathParticules.Play(true);
     }
 }
