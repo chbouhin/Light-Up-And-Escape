@@ -191,7 +191,7 @@ MonoBehaviour:
   rb: {fileID: 235363858}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 16968
+    m_Bits: 81992
   deathSounds:
   - SquareDeath1
   - SquareDeath2
@@ -488,7 +488,7 @@ MonoBehaviour:
   rb: {fileID: 277826817}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 8200
+    m_Bits: 73736
   deathSounds:
   - MouseLightDeath1
   - MouseLightDeath2
@@ -11688,15 +11688,39 @@ Tilemap:
   m_Enabled: 1
   m_Tiles: {}
   m_AnimatedTiles: {}
-  m_TileAssetArray: []
-  m_TileSpriteArray: []
-  m_TileMatrixArray: []
-  m_TileColorArray: []
+  m_TileAssetArray:
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  m_TileSpriteArray:
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  m_TileMatrixArray:
+  - m_RefCount: 0
+    m_Data:
+      e00: -3.4431305e+26
+      e01: 0
+      e02: -1.8295932e-19
+      e03: -1.8295932e-19
+      e10: 9.43e-43
+      e11: 0
+      e12: 9.4e-43
+      e13: 9.4e-43
+      e20: 2.358986e-25
+      e21: 1e-45
+      e22: 2.4586972e-19
+      e23: -3.37881e-40
+      e30: 4.5905e-41
+      e31: 0
+      e32: 9.42e-43
+      e33: 9.44e-43
+  m_TileColorArray:
+  - m_RefCount: 0
+    m_Data: {r: 3.897e-41, g: 3.897e-41, b: 3.897e-41, a: 3.897e-41}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Origin: {x: 0, y: 0, z: 0}
-  m_Size: {x: 0, y: 0, z: 1}
+  m_Origin: {x: 0, y: -1, z: 0}
+  m_Size: {x: 2, y: 1, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
@@ -11799,63 +11823,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &1138650591
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 7444388532532588208, guid: 93f9a0e93cea84242a6d678ad989e7f4, type: 3}
-      propertyPath: m_RootOrder
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7444388532532588208, guid: 93f9a0e93cea84242a6d678ad989e7f4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7444388532532588208, guid: 93f9a0e93cea84242a6d678ad989e7f4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7444388532532588208, guid: 93f9a0e93cea84242a6d678ad989e7f4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7444388532532588208, guid: 93f9a0e93cea84242a6d678ad989e7f4, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7444388532532588208, guid: 93f9a0e93cea84242a6d678ad989e7f4, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7444388532532588208, guid: 93f9a0e93cea84242a6d678ad989e7f4, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7444388532532588208, guid: 93f9a0e93cea84242a6d678ad989e7f4, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7444388532532588208, guid: 93f9a0e93cea84242a6d678ad989e7f4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7444388532532588208, guid: 93f9a0e93cea84242a6d678ad989e7f4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7444388532532588208, guid: 93f9a0e93cea84242a6d678ad989e7f4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7444388532532588210, guid: 93f9a0e93cea84242a6d678ad989e7f4, type: 3}
-      propertyPath: m_Name
-      value: AudioManager
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 93f9a0e93cea84242a6d678ad989e7f4, type: 3}
 --- !u!114 &1143857029 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5983517618554293623, guid: f5f9d6c4edf9ca040a165ff5a3bd0d39, type: 3}
@@ -12555,6 +12522,8 @@ MonoBehaviour:
     go: {fileID: 4079927784352788313, guid: 4e1ea193e5227ed49894aa595d7b2311, type: 3}
   - tag: CheckPoint
     go: {fileID: 4241105907199625129, guid: 5e546f9aac897ed41b71c065a1048a27, type: 3}
+  - tag: ExplosiveBox
+    go: {fileID: 376058172482142771, guid: 999c689ffbdaabe48903cf6b3e8101ff, type: 3}
 --- !u!4 &1670269121
 Transform:
   m_ObjectHideFlags: 0

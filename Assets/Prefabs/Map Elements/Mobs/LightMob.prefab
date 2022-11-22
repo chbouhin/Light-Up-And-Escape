@@ -34,7 +34,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0.5}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3239570927232741839
 GameObject:
@@ -79,7 +79,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &6869474590125320919
 Animator:
@@ -154,7 +154,7 @@ MonoBehaviour:
   animator: {fileID: 6869474590125320919}
   wallLayerMask:
     serializedVersion: 2
-    m_Bits: 25096
+    m_Bits: 90120
   rb: {fileID: 6861363297116682212}
   topPlayerDetect: {fileID: 2137458010192626317}
   deathSounds:
@@ -163,6 +163,7 @@ MonoBehaviour:
   normalDeathParticules: {fileID: 1649712258183104918}
   fallDeathParticules: {fileID: 6878669727904460200}
   skin: {fileID: 5568884561172787700}
+  col: {fileID: 7343809772437250449}
 --- !u!114 &7741517211998569023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,7 +278,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &8426823926634758998
 SpriteRenderer:

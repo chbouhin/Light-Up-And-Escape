@@ -24,10 +24,8 @@ public class Square : Player
         if (gameManager.isInGame) {
             CheckIfMoving();
             CheckIfJump();
-            if (transform.position.y < -6f) {
-                rb.constraints = RigidbodyConstraints2D.FreezePosition;
+            if (transform.position.y < -6f)
                 Die(fallDeathParticules);
-            }
             if (inputManager.GetKeyDown("SquareInteract"))
                 CheckIfHeld();
         }

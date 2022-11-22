@@ -13,6 +13,7 @@ public abstract class Mob : MonoBehaviour
     [SerializeField] private ParticleSystem normalDeathParticules;
     [SerializeField] private ParticleSystem fallDeathParticules;
     [SerializeField] private GameObject skin;
+    [SerializeField] private CircleCollider2D col;
     protected Player player;
     protected Vector2 velocity = new Vector2();
     protected float moveSpeed = 1.75f;
@@ -41,10 +42,8 @@ public abstract class Mob : MonoBehaviour
             isIdle = false;
         }
         animator.SetBool("isIdle", isIdle);
-        if (transform.position.y < -6f) {
-            rb.constraints = RigidbodyConstraints2D.FreezePosition;
+        if (transform.position.y < -6f)
             Die(fallDeathParticules);
-        }
     }
 
     private void OnCollisionEnter2D(Collision2D  col)
@@ -63,11 +62,15 @@ public abstract class Mob : MonoBehaviour
 
     public void Die(ParticleSystem deathParticleSystem = null)
     {
+        rb.constraints = RigidbodyConstraints2D.FreezePosition;
         audioManager.Play(deathSounds[Random.Range(0, deathSounds.Count)]);
         skin.SetActive(false);
         if (deathParticleSystem)
             deathParticleSystem.Play(true);
         else
             normalDeathParticules.Play(true);
+        this.enabled = false;
+        col.enabled = false;
+        Destroy(gameObject, 3f);
     }
 }

@@ -9,8 +9,8 @@ public class LinePower : MonoBehaviour
     [SerializeField] private Color isOnColor2;
     [SerializeField] private Color isOffColor1;
     [SerializeField] private Color isOffColor2;
-    [HideInInspector] public Vector3 startPos;
-    [HideInInspector] public Vector3 endPos;
+    [HideInInspector] public Vector2 startPos;
+    [HideInInspector] public Vector2 endPos;
     private float speed = 5f;
     private float minTime = 5f;
     private float actualTime = 0f;
@@ -25,8 +25,8 @@ public class LinePower : MonoBehaviour
     private void Update()
     {
         actualTime += Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, endPos, speed * Time.deltaTime);
-        if (transform.position == endPos)
+        transform.position = Vector2.MoveTowards(transform.position, endPos, speed * Time.deltaTime);
+        if ((Vector2)transform.position == endPos)
             if (actualTime < minTime) {
                 particules.Stop();
             } else {

@@ -22,6 +22,7 @@ public abstract class Player : MonoBehaviour
     public void Die(ParticleSystem deathParticleSystem = null)
     {
         if (gameManager.isInGame) {
+            rb.constraints = RigidbodyConstraints2D.FreezePosition;
             audioManager.Play(deathSounds[Random.Range(0, deathSounds.Count)]);
             skin.SetActive(false);
             if (deathParticleSystem)

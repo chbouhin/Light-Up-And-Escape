@@ -30,6 +30,7 @@ TagManager:
   - PanelNoSquare
   - CheckPoint
   - Panel
+  - ExplosiveBox
   layers:
   - Default
   - TransparentFX
@@ -47,7 +48,7 @@ TagManager:
   - BarWallMouseLight
   - BarWallSquare
   - CheckPoint
-  - 
+  - ExplosiveBox
   - 
   - 
   - 
