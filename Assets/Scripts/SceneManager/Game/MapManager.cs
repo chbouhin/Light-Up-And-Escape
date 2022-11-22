@@ -26,22 +26,21 @@ public class MapManager : MonoBehaviour
 
     private void Awake()
     {
-        PlayerPrefs.SetInt("LevelId", 2);
         SetLevelIndex(PlayerPrefs.GetInt("LevelId", 1));
         Load();
     }
 
-    private void Update()
-    {
-        if (Input.GetKey(KeyCode.LeftControl)) {
-            if (Input.GetKeyDown(KeyCode.A))
-                Save();
-            if (Input.GetKeyDown(KeyCode.L))
-                Load();
-            if (Input.GetKeyDown(KeyCode.R))
-                FindObjectOfType<SceneLoader>().LoadNewScene("Game");
-        }
-    }
+    // private void Update()
+    // {
+    //     if (Input.GetKey(KeyCode.LeftControl)) {
+    //         if (Input.GetKeyDown(KeyCode.A))
+    //             Save();
+    //         if (Input.GetKeyDown(KeyCode.L))
+    //             Load();
+    //         if (Input.GetKeyDown(KeyCode.R))
+    //             FindObjectOfType<SceneLoader>().LoadNewScene("Game");
+    //     }
+    // }
 
     private void Save()
     {
@@ -116,13 +115,20 @@ public class MapManager : MonoBehaviour
         int count = 0;
         foreach (Vector2Int tilePos in tilemapsDatas.tilesPos)
             tilemap.SetTile((Vector3Int)tilePos, autoTile);
-        square.position = tilemapsDatas.squarePos;
-        mouseLight.SetPos(tilemapsDatas.mouseLightPos);
         foreach (MapElements mapElements in tilemapsDatas.mapElements)
             InstantiateObj(mapElements, objs, mapObjs[mapElements.id].go);
         foreach (MapElements mapElements in tilemapsDatas.mapElements) {
             SetLinkOfMapElements(objs, mapElements, count);
             count++;
+        }
+        if (PlayerPrefs.GetInt("CheckPoint", 0) == 0) {
+            square.position = tilemapsDatas.squarePos;
+            mouseLight.SetPos(tilemapsDatas.mouseLightPos);
+        } else {
+            Vector2 checkPointPos = GameObject.FindWithTag("CheckPoint").transform.position;
+            square.position = checkPointPos;
+            checkPointPos.y += 1f;
+            mouseLight.SetPos(checkPointPos);
         }
         Debug.Log("Load from " + filePath);
     }
