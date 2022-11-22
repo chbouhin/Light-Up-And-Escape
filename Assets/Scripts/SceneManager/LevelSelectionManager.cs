@@ -20,10 +20,15 @@ public class LevelSelectionManager : MonoBehaviour
         LevelsData levelsData = JsonUtility.FromJson<LevelsData>(json);
         int lastLevel = PlayerPrefs.GetInt("LevelId", 1);
         // Set slider pos (-34.5 is the pos to center 3 first buttons, 110 is the diff between the pos to center 1 2 3 and 4 5 6 buttons)
-        levelsSelectContent.localPosition = new Vector2(0f, -34.5f + 110f * Mathf.Floor((lastLevel - 1) / 3));
+        float yPos = -34.5f + 110f * Mathf.Floor((lastLevel - 1) / 3);
+        if (yPos < 0f)
+            yPos = 0f;
+        levelsSelectContent.localPosition = new Vector2(0f, yPos);
         for (int count = 1; count <= levelsData.coinsCount.Count; count++) {
             GameObject newLevelSelectButton = Instantiate(levelSelectButton, levelsSelectContent);
             newLevelSelectButton.transform.GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>().text = count.ToString();
+
+            // Makes levels available
             if (count <= PlayerPrefs.GetInt("LastLevelFinished", 0) + 1) {
                 newLevelSelectButton.transform.GetChild(3).gameObject.SetActive(false);
                 int tempInt = count;
@@ -33,6 +38,8 @@ public class LevelSelectionManager : MonoBehaviour
                 newLevelSelectButton.GetComponent<Image>().color = Color.white;
                 newLevelSelectButton.transform.GetChild(0).GetComponent<Image>().color = Color.white;
             }
+
+            // Set Coins
             if (lastLevel != count || PlayerPrefs.GetInt("IsInGame", 0) == 0)
                 SetCoinsColor(newLevelSelectButton, levelsData.coinsCount[count - 1]);
             else

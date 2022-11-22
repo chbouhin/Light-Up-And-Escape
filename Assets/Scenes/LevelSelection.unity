@@ -2458,6 +2458,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1632230149}
     m_Modifications:
+    - target: {fileID: 5326317614257260812, guid: cea950ff3b9b0804f967eaec919f19f7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6839551181271661592, guid: cea950ff3b9b0804f967eaec919f19f7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6930122694965717508, guid: cea950ff3b9b0804f967eaec919f19f7, type: 3}
       propertyPath: m_Name
       value: Chest Golden
