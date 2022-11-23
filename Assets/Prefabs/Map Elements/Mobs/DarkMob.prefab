@@ -4978,6 +4978,7 @@ MonoBehaviour:
   fallDeathParticules: {fileID: 6450302959856957577}
   skin: {fileID: 5568884561172787700}
   col: {fileID: 3327429844258550439}
+  moveSpeed: 1.75
   groundCheck: {fileID: 4352866326801380935}
 --- !u!1 &5568884561172787700
 GameObject:

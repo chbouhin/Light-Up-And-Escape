@@ -16,7 +16,7 @@ public abstract class Mob : MonoBehaviour
     [SerializeField] private CircleCollider2D col;
     protected Player player;
     protected Vector2 velocity = new Vector2();
-    protected float moveSpeed = 1.75f;
+    [SerializeField] protected float moveSpeed;
     protected bool isIdle = true;
     protected float stopDetectTimer = 0f;
     private float rangeDetection = 5f;
@@ -57,7 +57,7 @@ public abstract class Mob : MonoBehaviour
         if (!isIdle)
             rb.velocity = velocity;
         else
-            rb.velocity = Vector2.Lerp(rb.velocity, new Vector2(0f, rb.velocity.y), Time.deltaTime * 2);
+            rb.velocity = Vector2.Lerp(rb.velocity, new Vector2(0f, rb.velocity.y), 0.02f);
     }
 
     public void Die(ParticleSystem deathParticleSystem = null)

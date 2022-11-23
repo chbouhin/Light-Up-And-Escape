@@ -286,7 +286,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.2
+      scalar: 0.1
       minScalar: 0.15
       maxCurve:
         serializedVersion: 2
@@ -4759,8 +4759,8 @@ MonoBehaviour:
   isOnColor2: {r: 1, g: 0.15851626, b: 0, a: 1}
   isOffColor1: {r: 0, g: 1, b: 0.46245718, a: 1}
   isOffColor2: {r: 0, g: 1, b: 0.9690397, a: 1}
-  startPos: {x: 0, y: 0, z: 0}
-  endPos: {x: 0, y: 0, z: 0}
+  startPos: {x: 0, y: 0}
+  endPos: {x: 0, y: 0}
 --- !u!199 &4510932609139696279
 ParticleSystemRenderer:
   serializedVersion: 6

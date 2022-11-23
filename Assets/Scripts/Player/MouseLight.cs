@@ -6,7 +6,7 @@ public class MouseLight : Player
 {
     private Vector2 position;
     private Vector2 destination;
-    private float moveSpeed = 0.05f;
+    private float moveSpeed = 0.04f;
     private float maxDistanceMove = 4f;
 
     private void Start()
@@ -34,9 +34,8 @@ public class MouseLight : Player
         }
         float distance = Vector2.Distance(transform.position, destination);
         if (distance > maxDistanceMove)
-            position = Vector2.Lerp(transform.position, destination, moveSpeed * maxDistanceMove / distance);
-        else
-            position = Vector2.Lerp(transform.position, destination, moveSpeed);
+            distance = maxDistanceMove;
+        position = Vector2.Lerp(transform.position, transform.position + Vector3.Normalize(destination - (Vector2)transform.position) * distance, moveSpeed);
     }
 
     private void FixedUpdate()

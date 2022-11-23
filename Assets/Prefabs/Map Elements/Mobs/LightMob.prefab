@@ -164,6 +164,7 @@ MonoBehaviour:
   fallDeathParticules: {fileID: 6878669727904460200}
   skin: {fileID: 5568884561172787700}
   col: {fileID: 7343809772437250449}
+  moveSpeed: 2
 --- !u!114 &7741517211998569023
 MonoBehaviour:
   m_ObjectHideFlags: 0
